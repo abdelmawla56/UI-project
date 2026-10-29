@@ -1,421 +1,244 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add / Edit Application - RAK TECH Developer Job & Application Tracker</title>
-  <meta name="description" content="Add a new developer job opportunity or update an existing application in your RAK TECH tracking pipeline.">
+  <title>Add Application - RAK TECH</title>
+  <meta name="description" content="Form page to add and track a job application.">
   <link rel="stylesheet" href="css/tailwind.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#0B132B] text-white font-sans antialiased min-h-screen selection:bg-[#00B4D8] selection:text-[#0B132B] pb-24 md:pb-6">
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
 
-  
-  <aside aria-label="Prototype Navigation" class="bg-[#131B2E] border-b border-[#232F55] text-xs px-4 py-2 sticky top-0 z-50">
-    <div class="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#00B4D8]/20 text-[#00F0FF] border border-[#00B4D8]/40">PROTOTYPE SUITE</span>
-        <span class="text-[#8D99AE] hidden sm:inline">RAK TECH WCAG Compliant Prototype:</span>
-      </div>
-      <nav aria-label="Prototype Views" class="flex flex-wrap items-center gap-1.5 overflow-x-auto py-1">
-        <a href="index.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">1. Landing</a>
-        <a href="dashboard.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">2. Dashboard</a>
-        <a href="jobs.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">3. Job Board</a>
-        <a href="job-details.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">4. Job Details</a>
-        <a href="pipeline.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">5. Kanban Pipeline</a>
-        <a href="add-application.html" class="px-2.5 py-1 rounded bg-[#00B4D8] text-[#0B132B] font-bold shadow-sm">6. Add Application</a>
-        <a href="auth.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">7. Auth</a>
-        <a href="profile-settings.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">8. Profile & Settings</a>
+  <!-- Simple Navigation Bar -->
+  <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-2 text-xl font-bold text-white hover:text-sky-400">
+        <span class="w-8 h-8 rounded-lg bg-sky-500 text-slate-900 flex items-center justify-center font-black">R</span>
+        <span>RAK <span class="text-sky-400">TECH</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation" class="flex flex-wrap items-center gap-3 sm:gap-6 text-sm text-slate-300">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="dashboard.html" class="hover:text-white">Dashboard</a>
+        <a href="jobs.html" class="hover:text-white">Job Board</a>
+        <a href="pipeline.html" class="hover:text-white">Pipeline</a>
+        <a href="add-application.html" class="text-sky-400 font-semibold">Add Job</a>
+        <a href="profile-settings.html" class="hover:text-white">Profile</a>
       </nav>
-    </div>
-  </aside>
 
-  <div class="flex min-h-[calc(100vh-41px)]">
-    
-    <aside aria-label="Sidebar Navigation" class="hidden lg:flex flex-col w-64 bg-[#131B2E] border-r border-[#1C2541] p-5 shrink-0 justify-between">
-      <div>
-        <a href="index.html" class="flex items-center gap-3 px-2 py-1 mb-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00F0FF]">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00B4D8] to-[#1C2541] flex items-center justify-center font-black text-lg text-white shadow-glow-cyan">R</div>
-          <span class="font-extrabold tracking-wider text-lg text-white">RAK <span class="text-[#00F0FF]">TECH</span></span>
+      <div class="flex items-center gap-2">
+        <a href="pipeline.html" class="px-3 py-1.5 text-xs font-semibold bg-slate-700 hover:bg-slate-600 text-white rounded-lg">
+          View Pipeline
         </a>
+      </div>
+    </div>
+  </header>
 
-        <div class="mb-6 px-3 py-2.5 rounded-xl bg-[#0B132B] border border-[#232F55] flex items-center justify-between">
+  <!-- Form Page Main Content -->
+  <main class="flex-1 max-w-6xl mx-auto w-full px-4 py-8">
+
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-2xl sm:text-3xl font-bold text-white">Add Job Application</h1>
+      <p class="text-sm text-slate-400">Fill in the details below to add a new position to your tracker</p>
+    </div>
+
+    <!-- Main Grid: Form (2 cols) + Live Preview Card (1 col) -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- Form Section -->
+      <section class="lg:col-span-2 bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <form action="pipeline.html" method="get" class="space-y-6">
+
+          <!-- Row 1: Company & Job Title -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="company-name" class="block text-xs font-semibold uppercase text-slate-300 mb-1">
+                Company Name <span class="text-red-400">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="company-name" 
+                name="company" 
+                required 
+                placeholder="e.g. Google, Stripe, Local Tech" 
+                class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-sky-500"
+              >
+            </div>
+
+            <div>
+              <label for="job-title" class="block text-xs font-semibold uppercase text-slate-300 mb-1">
+                Job Title <span class="text-red-400">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="job-title" 
+                name="title" 
+                required 
+                placeholder="e.g. Junior Frontend Developer" 
+                class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-sky-500"
+              >
+            </div>
+          </div>
+
+          <!-- Row 2: Stage & Location -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="pipeline-stage" class="block text-xs font-semibold uppercase text-slate-300 mb-1">
+                Application Stage
+              </label>
+              <select 
+                id="pipeline-stage" 
+                name="stage" 
+                class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-sky-500"
+              >
+                <option value="saved">Saved / Wishlist</option>
+                <option value="applied" selected>Applied</option>
+                <option value="interviewing">Interviewing</option>
+                <option value="offer">Offer Received</option>
+                <option value="rejected">Rejected / Closed</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="job-location" class="block text-xs font-semibold uppercase text-slate-300 mb-1">
+                Workplace / Location
+              </label>
+              <input 
+                type="text" 
+                id="job-location" 
+                name="location" 
+                placeholder="e.g. Remote, Cairo, On-site" 
+                class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-sky-500"
+              >
+            </div>
+          </div>
+
+          <!-- Row 3: Salary & Application Date -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="salary" class="block text-xs font-semibold uppercase text-slate-300 mb-1">
+                Expected Salary / Range
+              </label>
+              <input 
+                type="text" 
+                id="salary" 
+                name="salary" 
+                placeholder="e.g. $60k - $75k or 25,000 EGP" 
+                class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-sky-500"
+              >
+            </div>
+
+            <div>
+              <label for="date-applied" class="block text-xs font-semibold uppercase text-slate-300 mb-1">
+                Date Applied
+              </label>
+              <input 
+                type="date" 
+                id="date-applied" 
+                name="date" 
+                value="2026-10-29" 
+                class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-sky-500"
+              >
+            </div>
+          </div>
+
+          <!-- Row 4: Job URL -->
           <div>
-            <span class="text-[10px] uppercase tracking-wider text-[#8D99AE] font-semibold block">University Workspace</span>
-            <span class="text-xs font-bold text-white flex items-center gap-1.5 mt-0.5">
-              <span class="w-2 h-2 rounded-full bg-[#06D6A0]"></span>
-              Zewail City
-            </span>
+            <label for="job-url" class="block text-xs font-semibold uppercase text-slate-300 mb-1">
+              Job Posting URL
+            </label>
+            <input 
+              type="url" 
+              id="job-url" 
+              name="url" 
+              placeholder="https://company.com/careers/job-id" 
+              class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-sky-500"
+            >
           </div>
-          <svg class="w-4 h-4 text-[#8D99AE]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
-        </div>
 
-        <div class="mb-4">
-          <span class="text-[10px] font-bold text-[#5C677D] uppercase tracking-widest px-3 block mb-2">Career Hub</span>
-          <nav aria-label="Career Hub" class="space-y-1">
-            <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-              <span>Dashboard</span>
+          <!-- Row 5: Notes -->
+          <div>
+            <label for="job-notes" class="block text-xs font-semibold uppercase text-slate-300 mb-1">
+              Notes & Next Steps
+            </label>
+            <textarea 
+              id="job-notes" 
+              name="notes" 
+              rows="3" 
+              placeholder="Add notes about referral, interview rounds, or follow-up dates..." 
+              class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-sky-500"
+            ></textarea>
+          </div>
+
+          <!-- Form Buttons -->
+          <div class="pt-4 border-t border-slate-700 flex flex-wrap items-center gap-3">
+            <button 
+              type="submit" 
+              class="px-6 py-2.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-lg text-sm"
+            >
+              Save Application
+            </button>
+            <a 
+              href="pipeline.html" 
+              class="px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-300 font-semibold rounded-lg text-sm"
+            >
+              Cancel
             </a>
-            <a href="jobs.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span>Job Board</span>
-            </a>
-            <a href="pipeline.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
-              <span>Application Pipeline</span>
-            </a>
-            <a href="job-details.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-              <span>Job Details</span>
-            </a>
-            <a href="profile-settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-              <span>Profile</span>
-            </a>
-            <a href="profile-settings.html#settings" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              <span>Settings</span>
-            </a>
-          </nav>
-        </div>
-      </div>
-
-      <div class="pt-3 border-t border-[#1C2541] flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86EF] to-[#00B4D8] flex items-center justify-center text-xs font-bold text-white">AR</div>
-          <div class="flex flex-col">
-            <span class="text-xs font-bold text-white">Admin RAK</span>
-            <span class="text-[10px] text-[#8D99AE]">Student account</span>
           </div>
-        </div>
-        <a href="auth.html" title="Sign out" class="text-[#8D99AE] hover:text-white p-1">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
-        </a>
-      </div>
-    </aside>
 
-    
-    <div class="flex-1 flex flex-col min-w-0">
-      
-      <header class="h-16 border-b border-[#1C2541] bg-[#0B132B]/95 backdrop-blur px-4 sm:px-6 flex items-center justify-between sticky top-[41px] z-30">
-        <div class="flex-1 max-w-md relative">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#8D99AE]">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          </div>
-          <input 
-            type="search" 
-            placeholder="Search jobs, companies, applications..." 
-            aria-label="Search"
-            class="w-full bg-[#131B2E] border border-[#232F55] rounded-xl pl-9 pr-14 py-2 text-xs sm:text-sm text-white placeholder-[#8D99AE] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-          >
-          <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
-            <kbd class="px-1.5 py-0.5 text-[10px] font-semibold text-[#8D99AE] bg-[#1C2541] border border-[#232F55] rounded">⌘ K</kbd>
-          </div>
-        </div>
+        </form>
+      </section>
 
-        <div class="flex items-center gap-4 ml-4">
-          <div class="hidden md:flex flex-col text-right">
-            <span class="text-xs font-bold text-white">ZEWAIL CITY</span>
-            <span class="text-[10px] text-[#8D99AE]">FALL-2026</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86EF] to-[#00B4D8] flex items-center justify-center text-xs font-bold text-white">AR</div>
-            <span class="hidden sm:inline text-xs font-semibold text-white">Admin RAK</span>
-          </div>
-        </div>
-      </header>
+      <!-- Right Column: Card Preview -->
+      <aside class="space-y-6">
+        <div class="p-5 bg-slate-800 rounded-xl border border-slate-700">
+          <h2 class="text-sm font-bold text-white uppercase tracking-wider mb-3">Live Card Preview</h2>
+          <p class="text-xs text-slate-400 mb-4">This is how your application card will appear on the Kanban board:</p>
 
-      
-      <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6 max-w-[1500px] w-full mx-auto">
-        
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2 text-xs font-semibold text-[#8D99AE]">
-            <span>TRACK</span>
-            <span>/</span>
-            <span class="text-[#00F0FF]">Add / Edit Application</span>
-          </div>
-          <a href="pipeline.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8D99AE] hover:text-[#00F0FF] transition-colors">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-            <span>Back to Pipeline</span>
-          </a>
-        </div>
-
-        <div>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Add New Opportunity</h1>
-          <p class="text-xs sm:text-sm text-[#8D99AE] mt-0.5">Record key contacts, interview dates, and target compensation to keep your momentum going.</p>
-        </div>
-
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          
-          <section aria-label="Application Details Form" class="lg:col-span-8 bg-[#131B2E] border border-[#232F55] rounded-2xl p-6 sm:p-8 shadow-card">
-            <form id="add-app-form" class="space-y-6" onsubmit="event.preventDefault(); window.showToast('Application successfully created in pipeline!', 'success'); setTimeout(() => window.location.href='pipeline.html', 1200);">
-              
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="input-company" class="block text-xs font-bold text-white mb-1.5">
-                    Company Name <span class="text-[#EF476F]">*</span>
-                  </label>
-                  <div class="relative">
-                    <input 
-                      type="text" 
-                      id="input-company" 
-                      required 
-                      placeholder="e.g. Microsoft, Google, Siemens"
-                      value="Instabug"
-                      class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-[#8D99AE] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-                    >
-                  </div>
-                </div>
-
-                <div>
-                  <label for="input-role" class="block text-xs font-bold text-white mb-1.5">
-                    Job Title <span class="text-[#EF476F]">*</span>
-                  </label>
-                  <input 
-                    type="text" 
-                    id="input-role" 
-                    required 
-                    placeholder="e.g. Software Engineer Intern"
-                    value="Senior React Developer"
-                    class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-[#8D99AE] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-                  >
-                </div>
-              </div>
-
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="input-stage" class="block text-xs font-bold text-white mb-1.5">
-                    Pipeline Stage <span class="text-[#EF476F]">*</span>
-                  </label>
-                  <select 
-                    id="input-stage" 
-                    required
-                    class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-                  >
-                    <option value="Saved">Saved (Stage Blue #3A86EF)</option>
-                    <option value="Applied">Applied (Stage Blue #3A86EF)</option>
-                    <option value="Interviewing">Interviewing (Stage Amber #FFB703)</option>
-                    <option value="Offered" selected>Offered (Stage Emerald #06D6A0)</option>
-                    <option value="Closed">Closed / Rejected (Stage Crimson #EF476F)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label for="input-type" class="block text-xs font-bold text-white mb-1.5">
-                    Employment Type
-                  </label>
-                  <select 
-                    id="input-type" 
-                    class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-                  >
-                    <option selected>Full-time</option>
-                    <option>Internship</option>
-                    <option>Part-time</option>
-                    <option>Contract</option>
-                  </select>
-                </div>
-              </div>
-
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="input-salary" class="block text-xs font-bold text-white mb-1.5">
-                    Estimated / Offered Salary
-                  </label>
-                  <input 
-                    type="text" 
-                    id="input-salary" 
-                    placeholder="e.g. EGP 25,000 / mo"
-                    value="EGP 28,000 / mo"
-                    class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-[#8D99AE] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-                  >
-                </div>
-
-                <div>
-                  <label for="input-followup" class="block text-xs font-bold text-white mb-1.5">
-                    Follow-up / Interview Date
-                  </label>
-                  <input 
-                    type="date" 
-                    id="input-followup" 
-                    value="2026-10-30"
-                    class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-                  >
-                </div>
-              </div>
-
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="input-email" class="block text-xs font-bold text-white mb-1.5">
-                    Recruiter / Contact Email(s)
-                  </label>
-                  <input 
-                    type="email" 
-                    id="input-email" 
-                    placeholder="e.g. talent@instabug.com"
-                    value="careers@instabug.com"
-                    class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-[#8D99AE] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-                  >
-                </div>
-
-                <div>
-                  <label for="input-url" class="block text-xs font-bold text-white mb-1.5">
-                    Posting URL or Application Link
-                  </label>
-                  <input 
-                    type="url" 
-                    id="input-url" 
-                    placeholder="https://instabug.com/careers/role-123"
-                    value="https://jobs.instabug.com/frontend-lead"
-                    class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-[#8D99AE] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-                  >
-                </div>
-              </div>
-
-              
-              <div>
-                <label class="block text-xs font-bold text-white mb-1.5">
-                  Tech Stack Tags
-                </label>
-                <div class="flex flex-wrap gap-2 p-2.5 bg-[#0B132B] border border-[#232F55] rounded-xl">
-                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#1C2541] border border-[#232F55] text-xs text-white">
-                    React
-                    <button type="button" class="text-[#8D99AE] hover:text-white">×</button>
-                  </span>
-                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#1C2541] border border-[#232F55] text-xs text-white">
-                    TypeScript
-                    <button type="button" class="text-[#8D99AE] hover:text-white">×</button>
-                  </span>
-                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#1C2541] border border-[#232F55] text-xs text-white">
-                    Tailwind CSS
-                    <button type="button" class="text-[#8D99AE] hover:text-white">×</button>
-                  </span>
-                  <input 
-                    type="text" 
-                    placeholder="+ Add tag (Press enter)" 
-                    class="bg-transparent text-xs text-white placeholder-[#5C677D] focus:outline-none px-2 py-1 flex-1 min-w-[120px]"
-                  >
-                </div>
-              </div>
-
-              
-              <div>
-                <label for="input-notes" class="block text-xs font-bold text-white mb-1.5">
-                  Interview Notes & STAR Strategy
-                </label>
-                <textarea 
-                  id="input-notes" 
-                  rows="4" 
-                  placeholder="Record interviewer names, questions asked, behavioral STAR method examples, or take-home criteria..."
-                  class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl p-3.5 text-xs sm:text-sm text-white placeholder-[#8D99AE] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-                >Engineering Director mentioned focus on client-side state latency and offline crash reporting tools. Offer response deadline: Oct 30.</textarea>
-              </div>
-
-              
-              <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#1C2541]">
-                <a href="pipeline.html" class="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-[#8D99AE] hover:text-white bg-[#1C2541] border border-[#232F55] text-center">
-                  Cancel
-                </a>
-                <div class="flex items-center gap-3 w-full sm:w-auto">
-                  <button 
-                    type="button" 
-                    onclick="window.showToast('Application saved! Ready for next.', 'info'); document.getElementById('add-app-form').reset();"
-                    class="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#1C2541] hover:bg-[#232F55] border border-[#232F55]"
-                  >
-                    Save & Add Another
-                  </button>
-                  <button 
-                    type="submit" 
-                    class="w-full sm:w-auto px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-[#0B132B] bg-[#00B4D8] hover:bg-[#00F0FF] shadow-glow-cyan transition-all"
-                  >
-                    Save Application
-                  </button>
-                </div>
-              </div>
-            </form>
-          </section>
-
-          
-          <aside aria-label="Live Kanban Card Preview" class="lg:col-span-4 bg-[#131B2E] border border-[#232F55] rounded-2xl p-5 sm:p-6 shadow-card space-y-4 sticky top-20">
-            <div class="flex items-center justify-between pb-3 border-b border-[#1C2541]">
-              <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-[#00F0FF] animate-pulse"></span>
-                Live Pipeline Card Preview
+          <!-- Preview Card -->
+          <div class="p-4 bg-slate-900 rounded-lg border border-slate-700 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-sky-400">Acme Tech</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/30">
+                Applied
               </span>
-              <span class="text-[10px] text-[#8D99AE]">Real-time update</span>
             </div>
-
-            
-            <div class="p-4 rounded-xl bg-[#1C2541] border border-[#00B4D8] shadow-glow-cyan transition-all">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-7 h-7 rounded-lg bg-[#0B132B] text-[#00F0FF] font-black text-xs flex items-center justify-center">
-                    ib
-                  </div>
-                  <span id="preview-company" class="text-xs font-bold text-white">Instabug</span>
-                </div>
-                <span id="preview-stage" class="px-2.5 py-1 text-xs font-semibold rounded-full border bg-[#06D6A0]/15 text-[#06D6A0] border-[#06D6A0]/30">
-                  Offered
-                </span>
-              </div>
-
-              <h2 id="preview-role" class="text-sm font-bold text-white mt-3">
-                Senior React Developer
-              </h2>
-              <span class="text-xs text-[#8D99AE] block mt-0.5">Full-time • Hybrid</span>
-
-              <div class="mt-3 p-2.5 rounded-lg bg-[#0B132B] border border-[#232F55] text-xs">
-                <span class="text-[#8D99AE] text-[10px] block">Compensation:</span>
-                <span id="preview-salary" class="font-extrabold text-[#06D6A0]">EGP 28,000 / mo</span>
-              </div>
-
-              <div class="flex items-center justify-between text-[11px] text-[#8D99AE] mt-3 pt-2 border-t border-[#232F55]">
-                <span>Follow-up: Oct 30</span>
-                <span class="text-[#00F0FF]">Ready</span>
-              </div>
+            <h3 class="text-sm font-bold text-white">Junior Frontend Developer</h3>
+            <p class="text-xs text-slate-400">Remote • $65,000</p>
+            <div class="pt-2 border-t border-slate-800 flex justify-between text-[11px] text-slate-400">
+              <span>Applied: Today</span>
+              <span class="text-emerald-400">Active</span>
             </div>
-
-            <div class="p-3 rounded-xl bg-[#0B132B] border border-[#232F55] text-xs text-[#8D99AE] space-y-1.5">
-              <span class="font-bold text-white block">💡 Pro Tracker Tip:</span>
-              <p class="leading-relaxed text-[11px]">
-                Always add the recruiter's direct university email so RAK TECH can match your interview calendar automatically.
-              </p>
-            </div>
-          </aside>
-
+          </div>
         </div>
-      </main>
+
+        <!-- Help Info Box -->
+        <div class="p-4 bg-slate-800/60 rounded-xl border border-slate-700 text-xs text-slate-400 space-y-2">
+          <p class="font-semibold text-slate-200">Tips for tracking:</p>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Keep the job post URL saved in case the job listing gets closed.</li>
+            <li>Update your stage whenever a recruiter emails you.</li>
+          </ul>
+        </div>
+      </aside>
+
     </div>
-  </div>
 
-  
-  <nav aria-label="Mobile Navigation" class="lg:hidden fixed bottom-0 inset-x-0 bg-[#131B2E]/95 backdrop-blur-md border-t border-[#1C2541] px-4 py-2 z-40 flex justify-around items-center">
-    <a href="dashboard.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-      <span class="text-[10px] font-medium">Home</span>
-    </a>
-    <a href="jobs.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-      <span class="text-[10px] font-medium">Jobs</span>
-    </a>
-    <a href="pipeline.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
-      <span class="text-[10px] font-medium">Pipeline</span>
-    </a>
-    <a href="profile-settings.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-      <span class="text-[10px] font-medium">Profile</span>
-    </a>
-  </nav>
+  </main>
 
-  <script src="js/main.js"></script>
+  <!-- Simple Footer -->
+  <footer class="bg-slate-800 border-t border-slate-700 py-6 text-center text-xs text-slate-400 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>&copy; 2026 RAK TECH - Student UI Web Project</p>
+      <div class="flex gap-4">
+        <a href="index.html" class="hover:text-slate-200">Home</a>
+        <a href="dashboard.html" class="hover:text-slate-200">Dashboard</a>
+        <a href="jobs.html" class="hover:text-slate-200">Jobs</a>
+        <a href="pipeline.html" class="hover:text-slate-200">Pipeline</a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

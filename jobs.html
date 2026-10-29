@@ -1,582 +1,209 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Board - RAK TECH Developer Job & Application Tracker</title>
-  <meta name="description" content="Discover developer internships and engineering jobs matched to your skills at RAK TECH.">
+  <title>Browse Jobs - RAK TECH</title>
+  <meta name="description" content="Browse and filter developer jobs and internships.">
   <link rel="stylesheet" href="css/tailwind.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#0B132B] text-white font-sans antialiased min-h-screen selection:bg-[#00B4D8] selection:text-[#0B132B] pb-20 md:pb-6">
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
 
-  
-  <aside aria-label="Prototype Navigation" class="bg-[#131B2E] border-b border-[#232F55] text-xs px-4 py-2 sticky top-0 z-50">
-    <div class="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#00B4D8]/20 text-[#00F0FF] border border-[#00B4D8]/40">PROTOTYPE SUITE</span>
-        <span class="text-[#8D99AE] hidden sm:inline">RAK TECH WCAG Compliant Prototype:</span>
-      </div>
-      <nav aria-label="Prototype Views" class="flex flex-wrap items-center gap-1.5 overflow-x-auto py-1">
-        <a href="index.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">1. Landing</a>
-        <a href="dashboard.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">2. Dashboard</a>
-        <a href="jobs.html" class="px-2.5 py-1 rounded bg-[#00B4D8] text-[#0B132B] font-bold shadow-sm">3. Job Board</a>
-        <a href="job-details.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">4. Job Details</a>
-        <a href="pipeline.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">5. Kanban Pipeline</a>
-        <a href="add-application.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">6. Add Application</a>
-        <a href="auth.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">7. Auth</a>
-        <a href="profile-settings.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">8. Profile & Settings</a>
+  <!-- Simple Navigation Bar -->
+  <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-2 text-xl font-bold text-white hover:text-sky-400">
+        <span class="w-8 h-8 rounded-lg bg-sky-500 text-slate-900 flex items-center justify-center font-black">R</span>
+        <span>RAK <span class="text-sky-400">TECH</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation" class="flex flex-wrap items-center gap-3 sm:gap-6 text-sm text-slate-300">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="dashboard.html" class="hover:text-white">Dashboard</a>
+        <a href="jobs.html" class="text-sky-400 font-semibold">Job Board</a>
+        <a href="pipeline.html" class="hover:text-white">Pipeline</a>
+        <a href="add-application.html" class="hover:text-white">Add Job</a>
+        <a href="profile-settings.html" class="hover:text-white">Profile</a>
       </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="add-application.html" class="px-3 py-1.5 text-xs font-semibold bg-sky-500 hover:bg-sky-400 text-slate-950 rounded-lg">
+          + Post Job
+        </a>
+      </div>
     </div>
-  </aside>
+  </header>
 
-  <div class="flex min-h-[calc(100vh-41px)]">
-    
-    <aside aria-label="Sidebar Navigation" class="hidden lg:flex flex-col w-64 bg-[#131B2E] border-r border-[#1C2541] p-5 shrink-0 justify-between">
-      <div>
-        
-        <a href="index.html" class="flex items-center gap-3 px-2 py-1 mb-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00F0FF]">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00B4D8] to-[#1C2541] flex items-center justify-center font-black text-lg text-white shadow-glow-cyan">
-            R
-          </div>
-          <span class="font-extrabold tracking-wider text-lg text-white">RAK <span class="text-[#00F0FF]">TECH</span></span>
-        </a>
+  <!-- Job Board Main Content -->
+  <main class="flex-1 max-w-6xl mx-auto w-full px-4 py-8">
 
-        
-        <div class="mb-6 px-3 py-2.5 rounded-xl bg-[#0B132B] border border-[#232F55] flex items-center justify-between">
-          <div>
-            <span class="text-[10px] uppercase tracking-wider text-[#8D99AE] font-semibold block">University Workspace</span>
-            <span class="text-xs font-bold text-white flex items-center gap-1.5 mt-0.5">
-              <span class="w-2 h-2 rounded-full bg-[#06D6A0]"></span>
-              Zewail City
-            </span>
-          </div>
-          <svg class="w-4 h-4 text-[#8D99AE]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
-        </div>
+    <!-- Page Header & Search Bar -->
+    <div class="mb-8">
+      <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Developer Job Board</h1>
+      <p class="text-sm text-slate-400 mb-6">Find junior, frontend, and full-stack software opportunities</p>
 
-        
-        <div class="mb-4">
-          <span class="text-[10px] font-bold text-[#5C677D] uppercase tracking-widest px-3 block mb-2">Career Hub</span>
-          <nav aria-label="Career Hub" class="space-y-1">
-            <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-              <span>Dashboard</span>
-            </a>
-            <a href="jobs.html" aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-sm bg-[#00B4D8] text-[#0B132B] shadow-glow-cyan transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span>Job Board</span>
-            </a>
-            <a href="pipeline.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
-              <span>Application Pipeline</span>
-            </a>
-            <a href="job-details.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-              <span>Job Details</span>
-            </a>
-            <a href="profile-settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-              <span>Profile</span>
-            </a>
-            <a href="profile-settings.html#settings" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              <span>Settings</span>
-            </a>
-          </nav>
-        </div>
-      </div>
-
-      
-      <div class="pt-3 border-t border-[#1C2541] flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86EF] to-[#00B4D8] flex items-center justify-center text-xs font-bold text-white">
-            AR
-          </div>
-          <div class="flex flex-col">
-            <span class="text-xs font-bold text-white">Admin RAK</span>
-            <span class="text-[10px] text-[#8D99AE]">Student account</span>
-          </div>
-        </div>
-        <a href="auth.html" title="Sign out" class="text-[#8D99AE] hover:text-white p-1">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
-        </a>
-      </div>
-    </aside>
-
-    
-    <div class="flex-1 flex flex-col min-w-0">
-      
-      <header class="h-16 border-b border-[#1C2541] bg-[#0B132B]/95 backdrop-blur px-4 sm:px-6 flex items-center justify-between sticky top-[41px] z-30">
-        <div class="flex-1 max-w-md relative">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#8D99AE]">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          </div>
+      <!-- Search & Filters Container -->
+      <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col md:flex-row gap-4 items-center">
+        <!-- Search Input -->
+        <div class="w-full md:flex-1">
+          <label for="search-input" class="sr-only">Search jobs</label>
           <input 
-            type="search" 
-            placeholder="Search jobs, companies, applications..." 
-            aria-label="Search"
-            class="w-full bg-[#131B2E] border border-[#232F55] rounded-xl pl-9 pr-14 py-2 text-xs sm:text-sm text-white placeholder-[#8D99AE] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
+            type="text" 
+            id="search-input" 
+            placeholder="Search by title, technology, or company..." 
+            class="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-sky-500"
           >
-          <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
-            <kbd class="px-1.5 py-0.5 text-[10px] font-semibold text-[#8D99AE] bg-[#1C2541] border border-[#232F55] rounded">⌘ K</kbd>
-          </div>
         </div>
 
-        <div class="flex items-center gap-4 ml-4">
-          <div class="hidden md:flex flex-col text-right">
-            <span class="text-xs font-bold text-white">ZEWAIL CITY</span>
-            <span class="text-[10px] text-[#8D99AE]">FALL-2026</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86EF] to-[#00B4D8] flex items-center justify-center text-xs font-bold text-white">AR</div>
-            <span class="hidden sm:inline text-xs font-semibold text-white">Admin RAK</span>
-          </div>
+        <!-- Filter Selects -->
+        <div class="w-full md:w-auto flex flex-wrap gap-2">
+          <label for="filter-type" class="sr-only">Filter by job type</label>
+          <select id="filter-type" class="px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-xs text-slate-300">
+            <option>All Types</option>
+            <option>Full-Time</option>
+            <option>Internship</option>
+            <option>Part-Time</option>
+          </select>
+
+          <label for="filter-location" class="sr-only">Filter by location</label>
+          <select id="filter-location" class="px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-xs text-slate-300">
+            <option>All Locations</option>
+            <option>Remote</option>
+            <option>Cairo, EG</option>
+            <option>Dubai, UAE</option>
+          </select>
+
+          <button type="button" class="px-4 py-2 text-xs font-semibold bg-sky-500 hover:bg-sky-400 text-slate-950 rounded-lg">
+            Filter
+          </button>
         </div>
-      </header>
-
-      
-      <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6 max-w-[1600px] w-full mx-auto">
-        
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-2 text-xs font-semibold text-[#8D99AE] mb-1">
-              <span>DISCOVER</span>
-              <span>/</span>
-              <span class="text-[#00F0FF]">Find your next chapter.</span>
-            </div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Find your next chapter.</h1>
-            <p class="text-xs sm:text-sm text-[#8D99AE] mt-0.5">Curated opportunities for Zewail City's next generation of builders.</p>
-          </div>
-
-          <div class="flex items-center gap-3">
-            <a href="pipeline.html" class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#131B2E] border border-[#232F55] hover:border-[#00B4D8] text-xs font-semibold text-white transition-all">
-              <svg class="w-4 h-4 text-[#3A86EF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
-              <span>Saved jobs • 08</span>
-            </a>
-          </div>
-        </div>
-
-        
-        <section aria-label="Job Search and Location" class="p-3 sm:p-4 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card">
-          <form class="grid grid-cols-1 md:grid-cols-12 gap-3" onsubmit="event.preventDefault(); window.showToast('Searching developer roles in Cairo...', 'info');">
-            
-            <div class="md:col-span-6 relative">
-              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#8D99AE]">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-              </div>
-              <input 
-                type="text" 
-                placeholder="Job title, company or keyword (e.g. React, Python)" 
-                aria-label="Job title, company or keyword"
-                class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-[#8D99AE] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-              >
-            </div>
-
-            
-            <div class="md:col-span-4 relative">
-              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#8D99AE]">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              </div>
-              <select 
-                aria-label="Select location"
-                class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl pl-10 pr-8 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00F0FF] appearance-none"
-              >
-                <option selected>Cairo, Egypt</option>
-                <option>Giza, Egypt</option>
-                <option>Remote (EMEA / Worldwide)</option>
-                <option>Alexandria, Egypt</option>
-              </select>
-              <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-[#8D99AE]">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-              </div>
-            </div>
-
-            
-            <div class="md:col-span-2">
-              <button 
-                type="submit" 
-                class="w-full py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm bg-[#00B4D8] hover:bg-[#00F0FF] text-[#0B132B] shadow-glow-cyan transition-all flex items-center justify-center gap-2"
-              >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                <span>Search jobs</span>
-              </button>
-            </div>
-          </form>
-        </section>
-
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          
-          <aside aria-label="Job Search Filters" class="lg:col-span-3 bg-[#131B2E] border border-[#232F55] rounded-2xl p-5 shadow-card space-y-6">
-            <div class="flex items-center justify-between pb-3 border-b border-[#1C2541]">
-              <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                <svg class="w-4 h-4 text-[#00F0FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
-                <span>Filters</span>
-              </h2>
-              <button type="button" class="text-xs text-[#00F0FF] hover:underline" onclick="window.showToast('Filters reset to defaults', 'info')">Reset all</button>
-            </div>
-
-            
-            <fieldset class="space-y-2.5">
-              <legend class="text-xs font-bold text-white uppercase tracking-wider mb-2">Job type</legend>
-              <label class="flex items-center justify-between text-xs text-[#8D99AE] hover:text-white cursor-pointer">
-                <div class="flex items-center gap-2.5">
-                  <input type="checkbox" checked class="rounded bg-[#0B132B] border-[#232F55] text-[#00B4D8] focus:ring-[#00F0FF]">
-                  <span>Internship</span>
-                </div>
-                <span class="text-[11px] text-[#5C677D] font-mono">126</span>
-              </label>
-              <label class="flex items-center justify-between text-xs text-[#8D99AE] hover:text-white cursor-pointer">
-                <div class="flex items-center gap-2.5">
-                  <input type="checkbox" class="rounded bg-[#0B132B] border-[#232F55] text-[#00B4D8] focus:ring-[#00F0FF]">
-                  <span>Full-time</span>
-                </div>
-                <span class="text-[11px] text-[#5C677D] font-mono">84</span>
-              </label>
-              <label class="flex items-center justify-between text-xs text-[#8D99AE] hover:text-white cursor-pointer">
-                <div class="flex items-center gap-2.5">
-                  <input type="checkbox" class="rounded bg-[#0B132B] border-[#232F55] text-[#00B4D8] focus:ring-[#00F0FF]">
-                  <span>Part-time</span>
-                </div>
-                <span class="text-[11px] text-[#5C677D] font-mono">38</span>
-              </label>
-            </fieldset>
-
-            
-            <fieldset class="space-y-2.5 pt-4 border-t border-[#1C2541]">
-              <legend class="text-xs font-bold text-white uppercase tracking-wider mb-2">Workplace</legend>
-              <label class="flex items-center justify-between text-xs text-[#8D99AE] hover:text-white cursor-pointer">
-                <div class="flex items-center gap-2.5">
-                  <input type="checkbox" checked class="rounded bg-[#0B132B] border-[#232F55] text-[#00B4D8] focus:ring-[#00F0FF]">
-                  <span>Hybrid</span>
-                </div>
-                <span class="text-[11px] text-[#5C677D] font-mono">92</span>
-              </label>
-              <label class="flex items-center justify-between text-xs text-[#8D99AE] hover:text-white cursor-pointer">
-                <div class="flex items-center gap-2.5">
-                  <input type="checkbox" class="rounded bg-[#0B132B] border-[#232F55] text-[#00B4D8] focus:ring-[#00F0FF]">
-                  <span>Remote</span>
-                </div>
-                <span class="text-[11px] text-[#5C677D] font-mono">81</span>
-              </label>
-              <label class="flex items-center justify-between text-xs text-[#8D99AE] hover:text-white cursor-pointer">
-                <div class="flex items-center gap-2.5">
-                  <input type="checkbox" class="rounded bg-[#0B132B] border-[#232F55] text-[#00B4D8] focus:ring-[#00F0FF]">
-                  <span>On-site</span>
-                </div>
-                <span class="text-[11px] text-[#5C677D] font-mono">75</span>
-              </label>
-            </fieldset>
-
-            
-            <fieldset class="space-y-2.5 pt-4 border-t border-[#1C2541]">
-              <legend class="text-xs font-bold text-white uppercase tracking-wider mb-2">Experience level</legend>
-              <label class="flex items-center justify-between text-xs text-[#8D99AE] hover:text-white cursor-pointer">
-                <div class="flex items-center gap-2.5">
-                  <input type="checkbox" checked class="rounded bg-[#0B132B] border-[#232F55] text-[#00B4D8] focus:ring-[#00F0FF]">
-                  <span>Student</span>
-                </div>
-                <span class="text-[11px] text-[#5C677D] font-mono">126</span>
-              </label>
-              <label class="flex items-center justify-between text-xs text-[#8D99AE] hover:text-white cursor-pointer">
-                <div class="flex items-center gap-2.5">
-                  <input type="checkbox" class="rounded bg-[#0B132B] border-[#232F55] text-[#00B4D8] focus:ring-[#00F0FF]">
-                  <span>Entry level</span>
-                </div>
-                <span class="text-[11px] text-[#5C677D] font-mono">74</span>
-              </label>
-              <label class="flex items-center justify-between text-xs text-[#8D99AE] hover:text-white cursor-pointer">
-                <div class="flex items-center gap-2.5">
-                  <input type="checkbox" class="rounded bg-[#0B132B] border-[#232F55] text-[#00B4D8] focus:ring-[#00F0FF]">
-                  <span>Associate</span>
-                </div>
-                <span class="text-[11px] text-[#5C677D] font-mono">48</span>
-              </label>
-            </fieldset>
-
-            
-            <div class="pt-4 border-t border-[#1C2541]">
-              <label class="flex items-start gap-2.5 text-xs text-white cursor-pointer">
-                <input type="checkbox" checked class="rounded bg-[#0B132B] border-[#232F55] text-[#00B4D8] focus:ring-[#00F0FF] mt-0.5">
-                <div>
-                  <span class="font-semibold block">University-verified employers</span>
-                  <span class="text-[11px] text-[#8D99AE] leading-snug">Vetted by Zewail City career services</span>
-                </div>
-              </label>
-            </div>
-          </aside>
-
-          
-          <div class="lg:col-span-9 space-y-4">
-            
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-1">
-              <div class="flex items-center gap-2">
-                <span class="text-sm font-bold text-white">248 opportunities</span>
-                <span class="text-xs text-[#8D99AE]">matched to you</span>
-                
-                <div class="hidden sm:flex items-center gap-1.5 ml-2">
-                  <span class="inline-flex items-center gap-1 text-[11px] bg-[#1C2541] border border-[#232F55] px-2 py-0.5 rounded-full text-white">
-                    Internship
-                    <button class="text-[#8D99AE] hover:text-white">×</button>
-                  </span>
-                  <span class="inline-flex items-center gap-1 text-[11px] bg-[#1C2541] border border-[#232F55] px-2 py-0.5 rounded-full text-white">
-                    Cairo
-                    <button class="text-[#8D99AE] hover:text-white">×</button>
-                  </span>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-2 self-end sm:self-auto text-xs text-[#8D99AE]">
-                <span>Sort by:</span>
-                <select aria-label="Sort opportunities" class="bg-[#131B2E] border border-[#232F55] text-white rounded-lg px-2.5 py-1 text-xs focus:ring-[#00F0FF]">
-                  <option>Best match</option>
-                  <option>Most recent</option>
-                  <option>Highest salary</option>
-                </select>
-              </div>
-            </div>
-
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              
-              <article class="p-5 rounded-2xl bg-[#131B2E] border border-[#232F55] hover:border-[#00B4D8] transition-all shadow-card flex flex-col justify-between group">
-                <div>
-                  <div class="flex items-start justify-between">
-                    <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-xl bg-[#0B132B] border border-[#232F55] flex items-center justify-center font-bold text-lg text-[#00F0FF]">
-                        ⊞
-                      </div>
-                      <div>
-                        <span class="text-xs font-semibold text-white">Microsoft</span>
-                        <span class="text-[10px] text-[#8D99AE] block">2 hours ago</span>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <span class="text-xs font-bold text-[#00F0FF] bg-[#00F0FF]/10 px-2 py-0.5 rounded border border-[#00F0FF]/30">98% match</span>
-                      <button aria-label="Save Microsoft job" onclick="window.showToast('Saved Microsoft to tracker!', 'success')" class="text-[#8D99AE] hover:text-[#00F0FF] p-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
-                      </button>
-                    </div>
-                  </div>
-
-                  <h2 class="text-base font-bold text-white mt-3 group-hover:text-[#00F0FF] transition-colors">
-                    Software Engineer Intern
-                  </h2>
-                  <div class="flex items-center gap-2 text-xs text-[#8D99AE] mt-1">
-                    <span>Cairo, Egypt</span>
-                    <span>•</span>
-                    <span class="text-[#00F0FF]">Hybrid</span>
-                  </div>
-
-                  
-                  <div class="flex flex-wrap gap-1.5 mt-4">
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">React</span>
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">TypeScript</span>
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">Azure</span>
-                  </div>
-                </div>
-
-                
-                <div class="flex items-center justify-between mt-5 pt-4 border-t border-[#1C2541]">
-                  <div>
-                    <span class="text-xs font-extrabold text-white">EGP 12k–18k</span>
-                    <span class="text-[10px] text-[#8D99AE]">/ mo</span>
-                  </div>
-                  <a href="job-details.html" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-[#0B132B] bg-[#00B4D8] hover:bg-[#00F0FF] shadow-glow-cyan transition-all">
-                    View details
-                  </a>
-                </div>
-              </article>
-
-              
-              <article class="p-5 rounded-2xl bg-[#131B2E] border border-[#232F55] hover:border-[#00B4D8] transition-all shadow-card flex flex-col justify-between group">
-                <div>
-                  <div class="flex items-start justify-between">
-                    <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-xl bg-[#0B132B] border border-[#232F55] flex items-center justify-center font-bold text-lg text-white">
-                        G
-                      </div>
-                      <div>
-                        <span class="text-xs font-semibold text-white">Google</span>
-                        <span class="text-[10px] text-[#8D99AE] block">4 hours ago</span>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <span class="text-xs font-bold text-[#00F0FF] bg-[#00F0FF]/10 px-2 py-0.5 rounded border border-[#00F0FF]/30">96% match</span>
-                      <button aria-label="Save Google job" onclick="window.showToast('Saved Google to tracker!', 'success')" class="text-[#8D99AE] hover:text-[#00F0FF] p-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
-                      </button>
-                    </div>
-                  </div>
-
-                  <h2 class="text-base font-bold text-white mt-3 group-hover:text-[#00F0FF] transition-colors">
-                    UX Design Intern
-                  </h2>
-                  <div class="flex items-center gap-2 text-xs text-[#8D99AE] mt-1">
-                    <span>Remote</span>
-                    <span>•</span>
-                    <span class="text-[#00F0FF]">EMEA</span>
-                  </div>
-
-                  <div class="flex flex-wrap gap-1.5 mt-4">
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">Figma</span>
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">Research</span>
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">Prototyping</span>
-                  </div>
-                </div>
-
-                <div class="flex items-center justify-between mt-5 pt-4 border-t border-[#1C2541]">
-                  <div>
-                    <span class="text-xs font-extrabold text-[#06D6A0]">Paid internship</span>
-                  </div>
-                  <a href="job-details.html" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#1C2541] hover:bg-[#232F55] border border-[#232F55] transition-all">
-                    View details
-                  </a>
-                </div>
-              </article>
-
-              
-              <article class="p-5 rounded-2xl bg-[#131B2E] border border-[#232F55] hover:border-[#00B4D8] transition-all shadow-card flex flex-col justify-between group">
-                <div>
-                  <div class="flex items-start justify-between">
-                    <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-xl bg-[#0B132B] border border-[#232F55] flex items-center justify-center font-bold text-sm text-[#FF9900]">
-                        a
-                      </div>
-                      <div>
-                        <span class="text-xs font-semibold text-white">Amazon</span>
-                        <span class="text-[10px] text-[#8D99AE] block">6 hours ago</span>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <span class="text-xs font-bold text-[#00F0FF] bg-[#00F0FF]/10 px-2 py-0.5 rounded border border-[#00F0FF]/30">94% match</span>
-                      <button aria-label="Save Amazon job" onclick="window.showToast('Saved Amazon to tracker!', 'success')" class="text-[#8D99AE] hover:text-[#00F0FF] p-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
-                      </button>
-                    </div>
-                  </div>
-
-                  <h2 class="text-base font-bold text-white mt-3 group-hover:text-[#00F0FF] transition-colors">
-                    Cloud Support Intern
-                  </h2>
-                  <div class="flex items-center gap-2 text-xs text-[#8D99AE] mt-1">
-                    <span>Cairo, Egypt</span>
-                    <span>•</span>
-                    <span class="text-[#8D99AE]">On-site</span>
-                  </div>
-
-                  <div class="flex flex-wrap gap-1.5 mt-4">
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">AWS</span>
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">Python</span>
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">Linux</span>
-                  </div>
-                </div>
-
-                <div class="flex items-center justify-between mt-5 pt-4 border-t border-[#1C2541]">
-                  <div>
-                    <span class="text-xs font-extrabold text-white">EGP 10k–15k</span>
-                    <span class="text-[10px] text-[#8D99AE]">/ mo</span>
-                  </div>
-                  <a href="job-details.html" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#1C2541] hover:bg-[#232F55] border border-[#232F55] transition-all">
-                    View details
-                  </a>
-                </div>
-              </article>
-
-              
-              <article class="p-5 rounded-2xl bg-[#131B2E] border border-[#232F55] hover:border-[#00B4D8] transition-all shadow-card flex flex-col justify-between group">
-                <div>
-                  <div class="flex items-start justify-between">
-                    <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-xl bg-[#0B132B] border border-[#232F55] flex items-center justify-center font-bold text-sm text-[#00B4D8]">
-                        S
-                      </div>
-                      <div>
-                        <span class="text-xs font-semibold text-white">Siemens</span>
-                        <span class="text-[10px] text-[#8D99AE] block">1 day ago</span>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <span class="text-xs font-bold text-[#00F0FF] bg-[#00F0FF]/10 px-2 py-0.5 rounded border border-[#00F0FF]/30">91% match</span>
-                      <button aria-label="Save Siemens job" onclick="window.showToast('Saved Siemens to tracker!', 'success')" class="text-[#8D99AE] hover:text-[#00F0FF] p-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
-                      </button>
-                    </div>
-                  </div>
-
-                  <h2 class="text-base font-bold text-white mt-3 group-hover:text-[#00F0FF] transition-colors">
-                    Graduate Software Engineer
-                  </h2>
-                  <div class="flex items-center gap-2 text-xs text-[#8D99AE] mt-1">
-                    <span>Giza, Egypt</span>
-                    <span>•</span>
-                    <span class="text-[#00F0FF]">Hybrid</span>
-                  </div>
-
-                  <div class="flex flex-wrap gap-1.5 mt-4">
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">C++</span>
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">Python</span>
-                    <span class="px-2 py-0.5 rounded-md bg-[#1C2541] text-[#8D99AE] text-[11px] font-medium border border-[#232F55]">Git</span>
-                  </div>
-                </div>
-
-                <div class="flex items-center justify-between mt-5 pt-4 border-t border-[#1C2541]">
-                  <div>
-                    <span class="text-xs font-extrabold text-white">EGP 20k–28k</span>
-                    <span class="text-[10px] text-[#8D99AE]">/ mo</span>
-                  </div>
-                  <a href="job-details.html" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#1C2541] hover:bg-[#232F55] border border-[#232F55] transition-all">
-                    View details
-                  </a>
-                </div>
-              </article>
-            </div>
-
-            
-            <nav aria-label="Job Board Pagination" class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#1C2541]">
-              <span class="text-xs text-[#8D99AE]">Showing 1–4 of 248 opportunities</span>
-              <div class="flex items-center gap-1.5">
-                <button type="button" aria-label="Previous page" class="p-2 rounded-lg bg-[#131B2E] border border-[#232F55] text-[#8D99AE] hover:text-white disabled:opacity-50" disabled>
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                </button>
-                <button type="button" aria-current="page" class="w-8 h-8 rounded-lg bg-[#00B4D8] text-[#0B132B] font-bold text-xs shadow-glow-cyan">1</button>
-                <button type="button" class="w-8 h-8 rounded-lg bg-[#131B2E] border border-[#232F55] text-white hover:bg-[#1C2541] text-xs font-medium">2</button>
-                <button type="button" class="w-8 h-8 rounded-lg bg-[#131B2E] border border-[#232F55] text-white hover:bg-[#1C2541] text-xs font-medium">3</button>
-                <span class="px-1 text-xs text-[#5C677D]">…</span>
-                <button type="button" class="w-8 h-8 rounded-lg bg-[#131B2E] border border-[#232F55] text-white hover:bg-[#1C2541] text-xs font-medium">62</button>
-                <button type="button" aria-label="Next page" class="p-2 rounded-lg bg-[#131B2E] border border-[#232F55] text-[#8D99AE] hover:text-white">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </button>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </main>
+      </div>
     </div>
-  </div>
 
-  
-  <nav aria-label="Mobile Navigation" class="lg:hidden fixed bottom-0 inset-x-0 bg-[#131B2E]/95 backdrop-blur-md border-t border-[#1C2541] px-4 py-2 z-40 flex justify-around items-center">
-    <a href="dashboard.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-      <span class="text-[10px] font-medium">Home</span>
-    </a>
-    <a href="jobs.html" aria-current="page" class="flex flex-col items-center gap-1 text-[#00F0FF] py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-      <span class="text-[10px] font-semibold">Jobs</span>
-    </a>
-    <a href="pipeline.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
-      <span class="text-[10px] font-medium">Pipeline</span>
-    </a>
-    <a href="profile-settings.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-      <span class="text-[10px] font-medium">Profile</span>
-    </a>
-  </nav>
+    <!-- Job Cards List (Overview) -->
+    <section aria-label="Available Jobs List" class="space-y-4">
 
-  <script src="js/main.js"></script>
+      <!-- Job Item 1 -->
+      <article class="p-5 bg-slate-800 rounded-xl border border-slate-700 hover:border-slate-600 transition flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Stripe</span>
+            <span class="text-xs text-slate-400">• Remote (EMEA)</span>
+            <span class="text-xs text-emerald-400 font-medium">• $65k - $80k</span>
+          </div>
+          <h2 class="text-lg font-bold text-white">Junior Frontend Engineer</h2>
+          <p class="text-xs text-slate-400 mt-1">Build accessible, pixel-perfect user interfaces with HTML5, Tailwind CSS, and React.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">Tailwind CSS</span>
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">JavaScript</span>
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">React</span>
+          </div>
+        </div>
+        <div class="flex sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0">
+          <span class="text-xs text-slate-400">Posted 2d ago</span>
+          <a href="job-details.html" class="px-4 py-2 text-xs font-semibold bg-sky-500 hover:bg-sky-400 text-slate-950 rounded-lg">
+            View Details
+          </a>
+        </div>
+      </article>
+
+      <!-- Job Item 2 -->
+      <article class="p-5 bg-slate-800 rounded-xl border border-slate-700 hover:border-slate-600 transition flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Shopify</span>
+            <span class="text-xs text-slate-400">• Hybrid (Cairo)</span>
+            <span class="text-xs text-emerald-400 font-medium">• $55k - $70k</span>
+          </div>
+          <h2 class="text-lg font-bold text-white">Full Stack Web Developer</h2>
+          <p class="text-xs text-slate-400 mt-1">Develop scalable merchant web apps and dashboards using modern frontend stacks.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">HTML5</span>
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">Node.js</span>
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">Tailwind</span>
+          </div>
+        </div>
+        <div class="flex sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0">
+          <span class="text-xs text-slate-400">Posted 3d ago</span>
+          <a href="job-details.html" class="px-4 py-2 text-xs font-semibold bg-sky-500 hover:bg-sky-400 text-slate-950 rounded-lg">
+            View Details
+          </a>
+        </div>
+      </article>
+
+      <!-- Job Item 3 -->
+      <article class="p-5 bg-slate-800 rounded-xl border border-slate-700 hover:border-slate-600 transition flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Vercel</span>
+            <span class="text-xs text-slate-400">• Remote (Global)</span>
+            <span class="text-xs text-emerald-400 font-medium">• $75k - $95k</span>
+          </div>
+          <h2 class="text-lg font-bold text-white">UI/UX Web Engineer</h2>
+          <p class="text-xs text-slate-400 mt-1">Design responsive components, clean animations, and accessible design system tokens.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">UI Design</span>
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">Accessibility</span>
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">CSS3</span>
+          </div>
+        </div>
+        <div class="flex sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0">
+          <span class="text-xs text-slate-400">Posted 5d ago</span>
+          <a href="job-details.html" class="px-4 py-2 text-xs font-semibold bg-sky-500 hover:bg-sky-400 text-slate-950 rounded-lg">
+            View Details
+          </a>
+        </div>
+      </article>
+
+      <!-- Job Item 4 -->
+      <article class="p-5 bg-slate-800 rounded-xl border border-slate-700 hover:border-slate-600 transition flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">GitHub</span>
+            <span class="text-xs text-slate-400">• Remote</span>
+            <span class="text-xs text-emerald-400 font-medium">• $50k - $65k</span>
+          </div>
+          <h2 class="text-lg font-bold text-white">Frontend Developer Intern</h2>
+          <p class="text-xs text-slate-400 mt-1">Summer internship program for university computer science and engineering students.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">Git</span>
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">HTML/CSS</span>
+            <span class="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-300">JavaScript</span>
+          </div>
+        </div>
+        <div class="flex sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0">
+          <span class="text-xs text-slate-400">Posted 1w ago</span>
+          <a href="job-details.html" class="px-4 py-2 text-xs font-semibold bg-sky-500 hover:bg-sky-400 text-slate-950 rounded-lg">
+            View Details
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Simple Pagination -->
+    <nav aria-label="Pagination" class="mt-8 flex justify-center items-center gap-2">
+      <a href="jobs.html" class="px-3 py-1.5 text-xs bg-slate-800 border border-slate-700 rounded text-slate-400 hover:text-white">Previous</a>
+      <span class="px-3 py-1.5 text-xs bg-sky-500 text-slate-950 font-bold rounded">1</span>
+      <a href="jobs.html" class="px-3 py-1.5 text-xs bg-slate-800 border border-slate-700 rounded text-slate-300 hover:text-white">2</a>
+      <a href="jobs.html" class="px-3 py-1.5 text-xs bg-slate-800 border border-slate-700 rounded text-slate-300 hover:text-white">3</a>
+      <a href="jobs.html" class="px-3 py-1.5 text-xs bg-slate-800 border border-slate-700 rounded text-slate-400 hover:text-white">Next</a>
+    </nav>
+
+  </main>
+
+  <!-- Simple Footer -->
+  <footer class="bg-slate-800 border-t border-slate-700 py-6 text-center text-xs text-slate-400 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>&copy; 2026 RAK TECH - Student UI Web Project</p>
+      <div class="flex gap-4">
+        <a href="index.html" class="hover:text-slate-200">Home</a>
+        <a href="dashboard.html" class="hover:text-slate-200">Dashboard</a>
+        <a href="jobs.html" class="hover:text-slate-200">Jobs</a>
+        <a href="pipeline.html" class="hover:text-slate-200">Pipeline</a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

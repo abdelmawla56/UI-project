@@ -1,580 +1,218 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application Pipeline - RAK TECH Developer Job & Application Tracker</title>
-  <meta name="description" content="Manage your developer application pipeline across 5 stages from first save to signed offer.">
+  <title>Application Pipeline - RAK TECH</title>
+  <meta name="description" content="Kanban pipeline board tracking job application stages.">
   <link rel="stylesheet" href="css/tailwind.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#0B132B] text-white font-sans antialiased min-h-screen selection:bg-[#00B4D8] selection:text-[#0B132B] pb-24 md:pb-6">
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
 
-  
-  <aside aria-label="Prototype Navigation" class="bg-[#131B2E] border-b border-[#232F55] text-xs px-4 py-2 sticky top-0 z-50">
-    <div class="max-w-[1700px] mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#00B4D8]/20 text-[#00F0FF] border border-[#00B4D8]/40">PROTOTYPE SUITE</span>
-        <span class="text-[#8D99AE] hidden sm:inline">RAK TECH WCAG Compliant Prototype:</span>
-      </div>
-      <nav aria-label="Prototype Views" class="flex flex-wrap items-center gap-1.5 overflow-x-auto py-1">
-        <a href="index.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">1. Landing</a>
-        <a href="dashboard.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">2. Dashboard</a>
-        <a href="jobs.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">3. Job Board</a>
-        <a href="job-details.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">4. Job Details</a>
-        <a href="pipeline.html" class="px-2.5 py-1 rounded bg-[#00B4D8] text-[#0B132B] font-bold shadow-sm">5. Kanban Pipeline</a>
-        <a href="add-application.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">6. Add Application</a>
-        <a href="auth.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">7. Auth</a>
-        <a href="profile-settings.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">8. Profile & Settings</a>
+  <!-- Simple Navigation Bar -->
+  <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-2 text-xl font-bold text-white hover:text-sky-400">
+        <span class="w-8 h-8 rounded-lg bg-sky-500 text-slate-900 flex items-center justify-center font-black">R</span>
+        <span>RAK <span class="text-sky-400">TECH</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation" class="flex flex-wrap items-center gap-3 sm:gap-6 text-sm text-slate-300">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="dashboard.html" class="hover:text-white">Dashboard</a>
+        <a href="jobs.html" class="hover:text-white">Job Board</a>
+        <a href="pipeline.html" class="text-sky-400 font-semibold">Pipeline</a>
+        <a href="add-application.html" class="hover:text-white">Add Job</a>
+        <a href="profile-settings.html" class="hover:text-white">Profile</a>
       </nav>
-    </div>
-  </aside>
 
-  <div class="flex min-h-[calc(100vh-41px)]">
-    
-    <aside aria-label="Sidebar Navigation" class="hidden lg:flex flex-col w-64 bg-[#131B2E] border-r border-[#1C2541] p-5 shrink-0 justify-between">
+      <div class="flex items-center gap-2">
+        <a href="add-application.html" class="px-3 py-1.5 text-xs font-semibold bg-sky-500 hover:bg-sky-400 text-slate-950 rounded-lg">
+          + Add Job
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Pipeline Main Content -->
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 py-8">
+
+    <!-- Header Section -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
       <div>
-        
-        <a href="index.html" class="flex items-center gap-3 px-2 py-1 mb-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00F0FF]">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00B4D8] to-[#1C2541] flex items-center justify-center font-black text-lg text-white shadow-glow-cyan">
-            R
-          </div>
-          <span class="font-extrabold tracking-wider text-lg text-white">RAK <span class="text-[#00F0FF]">TECH</span></span>
-        </a>
-
-        
-        <div class="mb-6 px-3 py-2.5 rounded-xl bg-[#0B132B] border border-[#232F55] flex items-center justify-between">
-          <div>
-            <span class="text-[10px] uppercase tracking-wider text-[#8D99AE] font-semibold block">University Workspace</span>
-            <span class="text-xs font-bold text-white flex items-center gap-1.5 mt-0.5">
-              <span class="w-2 h-2 rounded-full bg-[#06D6A0]"></span>
-              Zewail City
-            </span>
-          </div>
-          <svg class="w-4 h-4 text-[#8D99AE]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
-        </div>
-
-        
-        <div class="mb-4">
-          <span class="text-[10px] font-bold text-[#5C677D] uppercase tracking-widest px-3 block mb-2">Career Hub</span>
-          <nav aria-label="Career Hub" class="space-y-1">
-            <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-              <span>Dashboard</span>
-            </a>
-            <a href="jobs.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span>Job Board</span>
-            </a>
-            <a href="pipeline.html" aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-sm bg-[#00B4D8] text-[#0B132B] shadow-glow-cyan transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
-              <span>Application Pipeline</span>
-            </a>
-            <a href="job-details.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-              <span>Job Details</span>
-            </a>
-            <a href="profile-settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-              <span>Profile</span>
-            </a>
-            <a href="profile-settings.html#settings" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              <span>Settings</span>
-            </a>
-          </nav>
-        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-white">Application Pipeline</h1>
+        <p class="text-sm text-slate-400">Track and manage your applications through every interview stage</p>
       </div>
 
-      
-      <div class="pt-3 border-t border-[#1C2541] flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86EF] to-[#00B4D8] flex items-center justify-center text-xs font-bold text-white">AR</div>
-          <div class="flex flex-col">
-            <span class="text-xs font-bold text-white">Admin RAK</span>
-            <span class="text-[10px] text-[#8D99AE]">Student account</span>
-          </div>
-        </div>
-        <a href="auth.html" title="Sign out" class="text-[#8D99AE] hover:text-white p-1">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
-        </a>
-      </div>
-    </aside>
-
-    
-    <div class="flex-1 flex flex-col min-w-0">
-      
-      <header class="h-16 border-b border-[#1C2541] bg-[#0B132B]/95 backdrop-blur px-4 sm:px-6 flex items-center justify-between sticky top-[41px] z-30">
-        <div class="flex-1 max-w-md relative">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#8D99AE]">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          </div>
-          <input 
-            type="search" 
-            placeholder="Search jobs, companies, applications..." 
-            aria-label="Search"
-            class="w-full bg-[#131B2E] border border-[#232F55] rounded-xl pl-9 pr-14 py-2 text-xs sm:text-sm text-white placeholder-[#8D99AE] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
-          >
-          <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
-            <kbd class="px-1.5 py-0.5 text-[10px] font-semibold text-[#8D99AE] bg-[#1C2541] border border-[#232F55] rounded">⌘ K</kbd>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-4 ml-4">
-          <div class="hidden md:flex flex-col text-right">
-            <span class="text-xs font-bold text-white">ZEWAIL CITY</span>
-            <span class="text-[10px] text-[#8D99AE]">FALL-2026</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86EF] to-[#00B4D8] flex items-center justify-center text-xs font-bold text-white">AR</div>
-            <span class="hidden sm:inline text-xs font-semibold text-white">Admin RAK</span>
-          </div>
-        </div>
-      </header>
-
-      
-      <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-5 max-w-[1700px] w-full mx-auto">
-        
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-2 text-xs font-semibold text-[#8D99AE] mb-1">
-              <span>TRACK</span>
-              <span>/</span>
-              <span class="text-[#00F0FF]">Application Pipeline</span>
-            </div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Application Pipeline</h1>
-            <p class="text-xs sm:text-sm text-[#8D99AE] mt-0.5">From first save to signed offer. Keep your next move in focus.</p>
-          </div>
-
-          <a href="add-application.html" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#00B4D8] hover:bg-[#00F0FF] text-[#0B132B] shadow-glow-cyan transition-all self-start sm:self-auto">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-            <span>+ Add application</span>
-          </a>
-        </div>
-
-        
-        <section aria-label="Pipeline Controls" class="flex flex-col md:flex-row md:items-center justify-between gap-3 p-3 rounded-2xl bg-[#131B2E] border border-[#232F55]">
-          
-          <div class="flex items-center gap-3">
-            <div class="flex items-center bg-[#0B132B] p-1 rounded-xl border border-[#232F55]">
-              <button type="button" aria-pressed="true" class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-[#1C2541] text-[#00F0FF] border border-[#00B4D8]/30 shadow-sm">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
-                <span>Board view</span>
-              </button>
-              <button type="button" aria-pressed="false" onclick="window.showToast('List view activated', 'info')" class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium text-[#8D99AE] hover:text-white">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
-                <span>List view</span>
-              </button>
-            </div>
-            <span class="text-xs font-semibold text-[#8D99AE]">24 applications</span>
-          </div>
-
-          
-          <div class="flex flex-wrap items-center gap-2">
-            <div class="relative">
-              <input type="text" placeholder="Search applications" aria-label="Search applications" class="bg-[#0B132B] border border-[#232F55] rounded-xl px-3 py-1.5 text-xs text-white placeholder-[#8D99AE] focus:ring-[#00F0FF]">
-            </div>
-            <select aria-label="Filter by company" class="bg-[#0B132B] border border-[#232F55] rounded-xl px-3 py-1.5 text-xs text-white focus:ring-[#00F0FF]">
-              <option>All companies</option>
-              <option>Microsoft</option>
-              <option>Google</option>
-              <option>Amazon</option>
-              <option>Siemens</option>
-              <option>Instabug</option>
-            </select>
-            <button type="button" class="p-2 rounded-xl bg-[#0B132B] border border-[#232F55] text-[#8D99AE] hover:text-white" aria-label="Additional filters">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>
-            </button>
-          </div>
-        </section>
-
-        
-        <nav aria-label="Mobile Pipeline Stages" class="lg:hidden flex items-center gap-1.5 overflow-x-auto pb-2 border-b border-[#1C2541]" role="tablist">
-          <button type="button" role="tab" aria-selected="true" data-stage-tab="all" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-[#1C2541] text-[#00F0FF] border border-[#00B4D8] shrink-0">
-            All (24)
-          </button>
-          <button type="button" role="tab" aria-selected="false" data-stage-tab="saved" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#131B2E] text-[#8D99AE] border border-[#232F55] shrink-0">
-            <span class="text-[#3A86EF]">●</span> Saved (08)
-          </button>
-          <button type="button" role="tab" aria-selected="false" data-stage-tab="applied" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#131B2E] text-[#8D99AE] border border-[#232F55] shrink-0">
-            <span class="text-[#3A86EF]">●</span> Applied (06)
-          </button>
-          <button type="button" role="tab" aria-selected="false" data-stage-tab="interviewing" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#131B2E] text-[#8D99AE] border border-[#232F55] shrink-0">
-            <span class="text-[#FFB703]">●</span> Interviewing (04)
-          </button>
-          <button type="button" role="tab" aria-selected="false" data-stage-tab="offered" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#131B2E] text-[#8D99AE] border border-[#232F55] shrink-0">
-            <span class="text-[#06D6A0]">●</span> Offered (03)
-          </button>
-          <button type="button" role="tab" aria-selected="false" data-stage-tab="closed" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#131B2E] text-[#8D99AE] border border-[#232F55] shrink-0">
-            <span class="text-[#EF476F]">●</span> Closed (03)
-          </button>
-        </nav>
-
-        
-        <section aria-label="Kanban Board" class="grid grid-cols-1 lg:grid-cols-5 gap-4 items-start">
-          
-          
-          <div data-stage-column="saved" class="bg-[#131B2E]/90 border border-[#232F55] rounded-2xl p-3.5 shadow-card space-y-3">
-            
-            <div class="flex items-center justify-between pb-2 border-b border-[#1C2541]">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#3A86EF]"></span>
-                <span class="text-xs font-bold text-white">Saved</span>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="text-xs font-mono text-[#8D99AE] bg-[#1C2541] px-1.5 py-0.5 rounded">08</span>
-                <a href="add-application.html" class="text-[#8D99AE] hover:text-white text-sm" title="Add to Saved">+</a>
-              </div>
-            </div>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#232F55] hover:border-[#3A86EF] transition-all shadow-sm group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-[#FF9900] font-black text-[11px] flex items-center justify-center">a</div>
-                  <span class="text-xs font-bold text-white">Amazon</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-white mt-2 group-hover:text-[#00F0FF] transition-colors">Cloud Support Intern</h3>
-              <span class="text-[11px] text-[#8D99AE] block">Internship • On-site</span>
-              <div class="flex items-center justify-between text-[10px] text-[#8D99AE] mt-3 pt-2 border-t border-[#232F55]">
-                <span>Saved Oct 25</span>
-                <span class="text-[#FFB703] font-semibold">Deadline in 3 days</span>
-              </div>
-            </article>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#232F55] hover:border-[#3A86EF] transition-all shadow-sm group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-[#00B4D8] font-black text-[11px] flex items-center justify-center">S</div>
-                  <span class="text-xs font-bold text-white">Siemens</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-white mt-2 group-hover:text-[#00F0FF] transition-colors">Graduate Software Engineer</h3>
-              <span class="text-[11px] text-[#8D99AE] block">Full-time • Hybrid</span>
-              <div class="flex items-center justify-between text-[10px] text-[#8D99AE] mt-3 pt-2 border-t border-[#232F55]">
-                <span>Saved Oct 24</span>
-                <span class="text-[#06D6A0]">Referral sent</span>
-              </div>
-            </article>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#232F55] hover:border-[#3A86EF] transition-all shadow-sm group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-[#007DB8] font-black text-[11px] flex items-center justify-center">D</div>
-                  <span class="text-xs font-bold text-white">Dell</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-white mt-2 group-hover:text-[#00F0FF] transition-colors">IT Support Intern</h3>
-              <span class="text-[11px] text-[#8D99AE] block">Internship • Cairo</span>
-              <div class="flex items-center justify-between text-[10px] text-[#8D99AE] mt-3 pt-2 border-t border-[#232F55]">
-                <span>Saved Oct 22</span>
-                <span class="text-[#8D99AE]">Reviewing specs</span>
-              </div>
-            </article>
-
-            
-            <a href="add-application.html" class="w-full py-2 text-center text-xs text-[#8D99AE] hover:text-white hover:bg-[#1C2541] rounded-xl border border-dashed border-[#232F55] transition-all block">
-              + Add application
-            </a>
-          </div>
-
-          
-          <div data-stage-column="applied" class="bg-[#131B2E]/90 border border-[#232F55] rounded-2xl p-3.5 shadow-card space-y-3">
-            <div class="flex items-center justify-between pb-2 border-b border-[#1C2541]">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#3A86EF]"></span>
-                <span class="text-xs font-bold text-white">Applied</span>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="text-xs font-mono text-[#8D99AE] bg-[#1C2541] px-1.5 py-0.5 rounded">06</span>
-                <a href="add-application.html" class="text-[#8D99AE] hover:text-white text-sm" title="Add to Applied">+</a>
-              </div>
-            </div>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#232F55] hover:border-[#3A86EF] transition-all shadow-sm group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-white font-black text-[11px] flex items-center justify-center">G</div>
-                  <span class="text-xs font-bold text-white">Google</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-white mt-2 group-hover:text-[#00F0FF] transition-colors">UX Design Intern</h3>
-              <span class="text-[11px] text-[#8D99AE] block">Internship • Remote</span>
-              <div class="flex items-center justify-between text-[10px] text-[#8D99AE] mt-3 pt-2 border-t border-[#232F55]">
-                <span>Applied Oct 23</span>
-                <span class="text-[#00F0FF] font-medium">Follow up in 2 days</span>
-              </div>
-            </article>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#232F55] hover:border-[#3A86EF] transition-all shadow-sm group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-[#00B4D8] font-black text-[11px] flex items-center justify-center">P</div>
-                  <span class="text-xs font-bold text-white">Paymob</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-white mt-2 group-hover:text-[#00F0FF] transition-colors">Backend Engineer</h3>
-              <span class="text-[11px] text-[#8D99AE] block">Full-time • Hybrid</span>
-              <div class="flex items-center justify-between text-[10px] text-[#8D99AE] mt-3 pt-2 border-t border-[#232F55]">
-                <span>Applied Oct 21</span>
-                <span>Node.js / Redis</span>
-              </div>
-            </article>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#232F55] hover:border-[#3A86EF] transition-all shadow-sm group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-[#E60000] font-black text-[11px] flex items-center justify-center">◉</div>
-                  <span class="text-xs font-bold text-white">Vodafone</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-white mt-2 group-hover:text-[#00F0FF] transition-colors">Data Analyst Intern</h3>
-              <span class="text-[11px] text-[#8D99AE] block">Internship • Giza</span>
-              <div class="flex items-center justify-between text-[10px] text-[#8D99AE] mt-3 pt-2 border-t border-[#232F55]">
-                <span>Applied Oct 20</span>
-                <span>Under review</span>
-              </div>
-            </article>
-
-            <a href="add-application.html" class="w-full py-2 text-center text-xs text-[#8D99AE] hover:text-white hover:bg-[#1C2541] rounded-xl border border-dashed border-[#232F55] transition-all block">
-              + Add application
-            </a>
-          </div>
-
-          
-          <div data-stage-column="interviewing" class="bg-[#131B2E]/90 border border-[#FFB703]/40 rounded-2xl p-3.5 shadow-card space-y-3 ring-1 ring-[#FFB703]/20">
-            <div class="flex items-center justify-between pb-2 border-b border-[#1C2541]">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#FFB703] animate-pulse"></span>
-                <span class="text-xs font-bold text-[#FFB703]">Interviewing</span>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="text-xs font-mono text-[#FFB703] bg-[#FFB703]/10 px-1.5 py-0.5 rounded border border-[#FFB703]/20">04</span>
-                <a href="add-application.html" class="text-[#FFB703] hover:text-white text-sm" title="Add to Interviewing">+</a>
-              </div>
-            </div>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#FFB703]/40 hover:border-[#00F0FF] transition-all shadow-glow-amber group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-[#00F0FF] font-black text-[11px] flex items-center justify-center">⊞</div>
-                  <span class="text-xs font-bold text-white">Microsoft</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <a href="job-details.html" class="text-xs font-bold text-white mt-2 group-hover:text-[#00F0FF] transition-colors block">Software Engineer Intern</a>
-              <span class="text-[11px] text-[#8D99AE] block">Round 2 • Hybrid</span>
-              <div class="mt-2.5 p-2 rounded-lg bg-[#0B132B] border border-[#232F55] text-[11px] text-[#FFB703] flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                <span>Technical • Oct 27, 10 AM</span>
-              </div>
-              <div class="text-[10px] text-[#00F0FF] mt-2 font-medium flex items-center justify-between">
-                <span>Tomorrow • Google Meet</span>
-                <a href="job-details.html" class="hover:underline font-bold">Prep →</a>
-              </div>
-            </article>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#232F55] hover:border-[#FFB703] transition-all shadow-sm group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-[#FF9900] font-black text-[11px] flex items-center justify-center">a</div>
-                  <span class="text-xs font-bold text-white">Amazon</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-white mt-2 group-hover:text-[#00F0FF] transition-colors">SDE Intern</h3>
-              <span class="text-[11px] text-[#8D99AE] block">Round 1 • Cairo</span>
-              <div class="mt-2.5 p-2 rounded-lg bg-[#0B132B] border border-[#232F55] text-[11px] text-[#FFB703] flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                <span>Behavioral • Oct 29, 2 PM</span>
-              </div>
-              <div class="text-[10px] text-[#8D99AE] mt-2">
-                <span>Prepare STAR stories</span>
-              </div>
-            </article>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#232F55] hover:border-[#FFB703] transition-all shadow-sm group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-[#00B4D8] font-black text-[11px] flex items-center justify-center">S</div>
-                  <span class="text-xs font-bold text-white">Siemens</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-white mt-2 group-hover:text-[#00F0FF] transition-colors">QA Engineer Intern</h3>
-              <span class="text-[11px] text-[#8D99AE] block">Round 2 • Hybrid</span>
-              <div class="mt-2.5 p-2 rounded-lg bg-[#0B132B] border border-[#232F55] text-[11px] text-[#FFB703] flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                <span>Technical • Oct 30, 11 AM</span>
-              </div>
-            </article>
-
-            <a href="add-application.html" class="w-full py-2 text-center text-xs text-[#FFB703] hover:bg-[#1C2541] rounded-xl border border-dashed border-[#FFB703]/30 transition-all block">
-              + Add application
-            </a>
-          </div>
-
-          
-          <div data-stage-column="offered" class="bg-[#131B2E]/90 border border-[#06D6A0]/40 rounded-2xl p-3.5 shadow-card space-y-3 ring-1 ring-[#06D6A0]/20">
-            <div class="flex items-center justify-between pb-2 border-b border-[#1C2541]">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#06D6A0]"></span>
-                <span class="text-xs font-bold text-[#06D6A0]">Offered</span>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="text-xs font-mono text-[#06D6A0] bg-[#06D6A0]/10 px-1.5 py-0.5 rounded border border-[#06D6A0]/20">03</span>
-                <a href="add-application.html" class="text-[#06D6A0] hover:text-white text-sm" title="Add to Offered">+</a>
-              </div>
-            </div>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#06D6A0]/30 hover:border-[#06D6A0] transition-all shadow-glow-emerald group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-[#06D6A0] font-black text-[11px] flex items-center justify-center">ib</div>
-                  <span class="text-xs font-bold text-white">Instabug</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-white mt-2 group-hover:text-[#06D6A0] transition-colors">Frontend Developer</h3>
-              <span class="text-[11px] text-[#8D99AE] block">Full-time • Hybrid</span>
-              <div class="mt-2.5 p-2 rounded-lg bg-[#06D6A0]/10 border border-[#06D6A0]/20 text-[11px] text-[#06D6A0]">
-                <span>Offer received Oct 21</span>
-              </div>
-              <div class="text-[10px] text-white mt-2 flex items-center justify-between font-semibold">
-                <span>Respond by Oct 30</span>
-                <span class="text-[#06D6A0] font-mono">EGP 24k</span>
-              </div>
-            </article>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#232F55] hover:border-[#06D6A0] transition-all shadow-sm group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-[#007DB8] font-black text-[11px] flex items-center justify-center">D</div>
-                  <span class="text-xs font-bold text-white">Dell</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-white mt-2 group-hover:text-[#06D6A0] transition-colors">Software Engineer</h3>
-              <span class="text-[11px] text-[#8D99AE] block">Graduate • Cairo</span>
-              <div class="mt-2.5 p-2 rounded-lg bg-[#06D6A0]/10 border border-[#06D6A0]/20 text-[11px] text-[#06D6A0]">
-                <span>Offer received Oct 19</span>
-              </div>
-            </article>
-
-            <a href="add-application.html" class="w-full py-2 text-center text-xs text-[#06D6A0] hover:bg-[#1C2541] rounded-xl border border-dashed border-[#06D6A0]/30 transition-all block">
-              + Add application
-            </a>
-          </div>
-
-          
-          <div data-stage-column="closed" class="bg-[#131B2E]/90 border border-[#232F55] rounded-2xl p-3.5 shadow-card space-y-3">
-            <div class="flex items-center justify-between pb-2 border-b border-[#1C2541]">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#EF476F]"></span>
-                <span class="text-xs font-bold text-[#EF476F]">Closed</span>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="text-xs font-mono text-[#8D99AE] bg-[#1C2541] px-1.5 py-0.5 rounded">03</span>
-                <a href="add-application.html" class="text-[#8D99AE] hover:text-white text-sm" title="Add to Closed">+</a>
-              </div>
-            </div>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#232F55] shadow-sm opacity-80 group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-[#EF476F] font-black text-[11px] flex items-center justify-center">◉</div>
-                  <span class="text-xs font-bold text-white">Vodafone</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-[#8D99AE] mt-2">Software Intern</h3>
-              <span class="text-[11px] text-[#5C677D] block">Rejected • Cairo</span>
-              <div class="flex items-center justify-between text-[10px] text-[#8D99AE] mt-3 pt-2 border-t border-[#232F55]">
-                <span>Closed Oct 18</span>
-                <span class="text-[#00F0FF]">Feedback received</span>
-              </div>
-            </article>
-
-            
-            <article class="p-3.5 rounded-xl bg-[#1C2541] border border-[#232F55] shadow-sm opacity-80 group">
-              <div class="flex items-start justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 rounded-md bg-[#0B132B] text-white font-black text-[11px] flex items-center justify-center">G</div>
-                  <span class="text-xs font-bold text-white">Google</span>
-                </div>
-                <button class="text-[#8D99AE] hover:text-white text-xs">•••</button>
-              </div>
-              <h3 class="text-xs font-bold text-[#8D99AE] mt-2">STEP Intern</h3>
-              <span class="text-[11px] text-[#5C677D] block">Withdrawn • Remote</span>
-              <div class="flex items-center justify-between text-[10px] text-[#8D99AE] mt-3 pt-2 border-t border-[#232F55]">
-                <span>Closed Oct 15</span>
-                <span>Accepted Microsoft</span>
-              </div>
-            </article>
-
-            <a href="add-application.html" class="w-full py-2 text-center text-xs text-[#8D99AE] hover:text-white hover:bg-[#1C2541] rounded-xl border border-dashed border-[#232F55] transition-all block">
-              + Add application
-            </a>
-          </div>
-
-        </section>
-
-        
-        <section aria-label="Progress announcement" class="p-4 rounded-2xl bg-gradient-to-r from-[#131B2E] via-[#1C2541] to-[#131B2E] border border-[#00B4D8]/30 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-card">
-          <div class="flex items-center gap-3">
-            <span class="text-xl">🚀</span>
-            <p class="text-xs sm:text-sm text-white">
-              <strong class="text-[#00F0FF] font-bold">You're making progress</strong> — 7 applications have reached interview or offer stage.
-            </p>
-          </div>
-          <a href="job-details.html" class="text-xs font-bold text-[#00F0FF] hover:underline flex items-center gap-1 shrink-0">
-            <span>Keep the momentum →</span>
-          </a>
-        </section>
-      </main>
+      <a href="add-application.html" class="px-4 py-2 text-xs font-semibold bg-sky-500 hover:bg-sky-400 text-slate-950 rounded-lg self-start sm:self-auto">
+        + New Application
+      </a>
     </div>
-  </div>
 
-  
-  <nav aria-label="Mobile Navigation" class="lg:hidden fixed bottom-0 inset-x-0 bg-[#131B2E]/95 backdrop-blur-md border-t border-[#1C2541] px-4 py-2 z-40 flex justify-around items-center">
-    <a href="dashboard.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-      <span class="text-[10px] font-medium">Home</span>
-    </a>
-    <a href="jobs.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-      <span class="text-[10px] font-medium">Jobs</span>
-    </a>
-    <a href="pipeline.html" aria-current="page" class="flex flex-col items-center gap-1 text-[#00F0FF] py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
-      <span class="text-[10px] font-semibold">Pipeline</span>
-    </a>
-    <a href="profile-settings.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-      <span class="text-[10px] font-medium">Profile</span>
-    </a>
-  </nav>
+    <!-- Kanban Board Grid: 4 Columns (Responsive: stacks or grid) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-  <script src="js/main.js"></script>
+      <!-- Column 1: Saved -->
+      <section class="bg-slate-800/80 rounded-xl border border-slate-700 p-4 flex flex-col">
+        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-200">Saved</h2>
+          </div>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-slate-900 text-slate-400 font-semibold">2</span>
+        </div>
+
+        <div class="space-y-3 flex-1">
+          <!-- Card 1 -->
+          <article class="p-3 bg-slate-900 rounded-lg border border-slate-700 hover:border-slate-600 transition">
+            <div class="flex justify-between items-start mb-1">
+              <span class="text-xs font-bold text-blue-400">GitHub</span>
+              <span class="text-[10px] text-slate-400">Oct 12</span>
+            </div>
+            <h3 class="text-xs font-semibold text-white">Frontend Intern</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Remote • $50k</p>
+            <div class="mt-2 pt-2 border-t border-slate-800 flex justify-end">
+              <a href="job-details.html" class="text-[11px] text-sky-400 hover:underline">View details</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="p-3 bg-slate-900 rounded-lg border border-slate-700 hover:border-slate-600 transition">
+            <div class="flex justify-between items-start mb-1">
+              <span class="text-xs font-bold text-blue-400">Microsoft</span>
+              <span class="text-[10px] text-slate-400">Oct 09</span>
+            </div>
+            <h3 class="text-xs font-semibold text-white">Junior Software Engineer</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Hybrid • $70k</p>
+            <div class="mt-2 pt-2 border-t border-slate-800 flex justify-end">
+              <a href="job-details.html" class="text-[11px] text-sky-400 hover:underline">View details</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Column 2: Applied -->
+      <section class="bg-slate-800/80 rounded-xl border border-slate-700 p-4 flex flex-col">
+        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-200">Applied</h2>
+          </div>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-slate-900 text-slate-400 font-semibold">2</span>
+        </div>
+
+        <div class="space-y-3 flex-1">
+          <!-- Card 1 -->
+          <article class="p-3 bg-slate-900 rounded-lg border border-slate-700 hover:border-slate-600 transition">
+            <div class="flex justify-between items-start mb-1">
+              <span class="text-xs font-bold text-sky-400">Vercel</span>
+              <span class="text-[10px] text-slate-400">Oct 18</span>
+            </div>
+            <h3 class="text-xs font-semibold text-white">Next.js UI Specialist</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Remote • $75k</p>
+            <div class="mt-2 pt-2 border-t border-slate-800 flex justify-end">
+              <a href="job-details.html" class="text-[11px] text-sky-400 hover:underline">View details</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="p-3 bg-slate-900 rounded-lg border border-slate-700 hover:border-slate-600 transition">
+            <div class="flex justify-between items-start mb-1">
+              <span class="text-xs font-bold text-sky-400">Amazon</span>
+              <span class="text-[10px] text-slate-400">Oct 15</span>
+            </div>
+            <h3 class="text-xs font-semibold text-white">SDE I (Frontend Focus)</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Cairo Office • 35k EGP</p>
+            <div class="mt-2 pt-2 border-t border-slate-800 flex justify-end">
+              <a href="job-details.html" class="text-[11px] text-sky-400 hover:underline">View details</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Column 3: Interviewing -->
+      <section class="bg-slate-800/80 rounded-xl border border-slate-700 p-4 flex flex-col">
+        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-200">Interviewing</h2>
+          </div>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-slate-900 text-slate-400 font-semibold">2</span>
+        </div>
+
+        <div class="space-y-3 flex-1">
+          <!-- Card 1 -->
+          <article class="p-3 bg-slate-900 rounded-lg border border-amber-500/40 hover:border-amber-400 transition">
+            <div class="flex justify-between items-start mb-1">
+              <span class="text-xs font-bold text-amber-300">Stripe</span>
+              <span class="text-[10px] text-amber-400 font-semibold">Round 2</span>
+            </div>
+            <h3 class="text-xs font-semibold text-white">Junior Frontend Engineer</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Remote • $65k - $80k</p>
+            <div class="mt-2 pt-2 border-t border-slate-800 flex justify-between items-center text-[10px]">
+              <span class="text-amber-400">Interview: Tomorrow 3 PM</span>
+              <a href="job-details.html" class="text-sky-400 hover:underline">View</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="p-3 bg-slate-900 rounded-lg border border-slate-700 hover:border-slate-600 transition">
+            <div class="flex justify-between items-start mb-1">
+              <span class="text-xs font-bold text-amber-300">Cloudflare</span>
+              <span class="text-[10px] text-amber-400 font-semibold">Technical Screen</span>
+            </div>
+            <h3 class="text-xs font-semibold text-white">Web Platform Associate</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Remote • $72k</p>
+            <div class="mt-2 pt-2 border-t border-slate-800 flex justify-end">
+              <a href="job-details.html" class="text-[11px] text-sky-400 hover:underline">View details</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Column 4: Offers -->
+      <section class="bg-slate-800/80 rounded-xl border border-slate-700 p-4 flex flex-col">
+        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-200">Offer Received</h2>
+          </div>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-slate-900 text-slate-400 font-semibold">1</span>
+        </div>
+
+        <div class="space-y-3 flex-1">
+          <!-- Card 1 -->
+          <article class="p-3 bg-slate-900 rounded-lg border border-emerald-500/40 hover:border-emerald-400 transition">
+            <div class="flex justify-between items-start mb-1">
+              <span class="text-xs font-bold text-emerald-400">Shopify</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">Offer</span>
+            </div>
+            <h3 class="text-xs font-semibold text-white">Full Stack Web Developer</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Hybrid (Cairo) • $60,000</p>
+            <div class="mt-2 pt-2 border-t border-slate-800 flex justify-between items-center text-[10px]">
+              <span class="text-emerald-400">Decision by Nov 05</span>
+              <a href="job-details.html" class="text-sky-400 hover:underline">View</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Simple Footer -->
+  <footer class="bg-slate-800 border-t border-slate-700 py-6 text-center text-xs text-slate-400 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>&copy; 2026 RAK TECH - Student UI Web Project</p>
+      <div class="flex gap-4">
+        <a href="index.html" class="hover:text-slate-200">Home</a>
+        <a href="dashboard.html" class="hover:text-slate-200">Dashboard</a>
+        <a href="jobs.html" class="hover:text-slate-200">Jobs</a>
+        <a href="pipeline.html" class="hover:text-slate-200">Pipeline</a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
