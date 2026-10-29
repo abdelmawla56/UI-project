@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile & Settings - RAK TECH Developer Job & Application Tracker</title>
+  <meta name="description" content="Manage your developer career preferences, academic credentials, resume, and workspace settings.">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#0B132B] text-white font-sans antialiased min-h-screen selection:bg-[#00B4D8] selection:text-[#0B132B] pb-24 md:pb-6">
+
+  
+  <aside aria-label="Prototype Navigation" class="bg-[#131B2E] border-b border-[#232F55] text-xs px-4 py-2 sticky top-0 z-50">
+    <div class="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#00B4D8]/20 text-[#00F0FF] border border-[#00B4D8]/40">PROTOTYPE SUITE</span>
+        <span class="text-[#8D99AE] hidden sm:inline">RAK TECH WCAG Compliant Prototype:</span>
+      </div>
+      <nav aria-label="Prototype Views" class="flex flex-wrap items-center gap-1.5 overflow-x-auto py-1">
+        <a href="index.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">1. Landing</a>
+        <a href="dashboard.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">2. Dashboard</a>
+        <a href="jobs.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">3. Job Board</a>
+        <a href="job-details.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">4. Job Details</a>
+        <a href="pipeline.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">5. Kanban Pipeline</a>
+        <a href="add-application.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">6. Add Application</a>
+        <a href="auth.html" class="px-2.5 py-1 rounded bg-[#1C2541] hover:bg-[#232F55] text-white">7. Auth</a>
+        <a href="profile-settings.html" class="px-2.5 py-1 rounded bg-[#00B4D8] text-[#0B132B] font-bold shadow-sm">8. Profile & Settings</a>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="flex min-h-[calc(100vh-41px)]">
+    
+    <aside aria-label="Sidebar Navigation" class="hidden lg:flex flex-col w-64 bg-[#131B2E] border-r border-[#1C2541] p-5 shrink-0 justify-between">
+      <div>
+        <a href="index.html" class="flex items-center gap-3 px-2 py-1 mb-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00F0FF]">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00B4D8] to-[#1C2541] flex items-center justify-center font-black text-lg text-white shadow-glow-cyan">
+            R
+          </div>
+          <span class="font-extrabold tracking-wider text-lg text-white">RAK <span class="text-[#00F0FF]">TECH</span></span>
+        </a>
+
+        
+        <div class="mb-6 px-3 py-2.5 rounded-xl bg-[#0B132B] border border-[#232F55] flex items-center justify-between">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider text-[#8D99AE] font-semibold block">University Workspace</span>
+            <span class="text-xs font-bold text-white flex items-center gap-1.5 mt-0.5">
+              <span class="w-2 h-2 rounded-full bg-[#06D6A0]"></span>
+              Zewail City
+            </span>
+          </div>
+          <svg class="w-4 h-4 text-[#8D99AE]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
+        </div>
+
+        <div class="mb-4">
+          <span class="text-[10px] font-bold text-[#5C677D] uppercase tracking-widest px-3 block mb-2">Career Hub</span>
+          <nav aria-label="Career Hub" class="space-y-1">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+              <span>Dashboard</span>
+            </a>
+            <a href="jobs.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>Job Board</span>
+            </a>
+            <a href="pipeline.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
+              <span>Application Pipeline</span>
+            </a>
+            <a href="job-details.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-sm text-[#8D99AE] hover:text-white hover:bg-[#1C2541] transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Job Details</span>
+            </a>
+            <a href="profile-settings.html" aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-sm bg-[#00B4D8] text-[#0B132B] shadow-glow-cyan transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              <span>Profile & Settings</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-[#1C2541] flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86EF] to-[#00B4D8] flex items-center justify-center text-xs font-bold text-white">AR</div>
+          <div class="flex flex-col">
+            <span class="text-xs font-bold text-white">Admin RAK</span>
+            <span class="text-[10px] text-[#8D99AE]">Student account</span>
+          </div>
+        </div>
+        <a href="auth.html" title="Sign out" class="text-[#8D99AE] hover:text-white p-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        </a>
+      </div>
+    </aside>
+
+    
+    <div class="flex-1 flex flex-col min-w-0">
+      
+      <header class="h-16 border-b border-[#1C2541] bg-[#0B132B]/95 backdrop-blur px-4 sm:px-6 flex items-center justify-between sticky top-[41px] z-30">
+        <div class="flex-1 max-w-md relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#8D99AE]">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <input 
+            type="search" 
+            placeholder="Search jobs, companies, applications..." 
+            aria-label="Search"
+            class="w-full bg-[#131B2E] border border-[#232F55] rounded-xl pl-9 pr-14 py-2 text-xs sm:text-sm text-white placeholder-[#8D99AE] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
+          >
+          <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
+            <kbd class="px-1.5 py-0.5 text-[10px] font-semibold text-[#8D99AE] bg-[#1C2541] border border-[#232F55] rounded">⌘ K</kbd>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 ml-4">
+          <div class="hidden md:flex flex-col text-right">
+            <span class="text-xs font-bold text-white">ZEWAIL CITY</span>
+            <span class="text-[10px] text-[#8D99AE]">FALL-2026</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86EF] to-[#00B4D8] flex items-center justify-center text-xs font-bold text-white">AR</div>
+            <span class="hidden sm:inline text-xs font-semibold text-white">Admin RAK</span>
+          </div>
+        </div>
+      </header>
+
+      
+      <main class="flex-1 p-4 sm:p-6 lg:p-8 space-y-6 max-w-[1500px] w-full mx-auto">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 text-xs font-semibold text-[#8D99AE] mb-1">
+              <span>ACCOUNT</span>
+              <span>/</span>
+              <span class="text-[#00F0FF]">Your Profile & Settings</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Your story, skills and ambitions.</h1>
+            <p class="text-xs sm:text-sm text-[#8D99AE] mt-0.5">Make a strong first impression on engineering managers and campus recruiters.</p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button type="button" onclick="window.showToast('Previewing public verified portfolio card...', 'info')" class="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-[#131B2E] border border-[#232F55] hover:border-[#00B4D8] transition-all">
+              <svg class="w-4 h-4 text-[#00F0FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              <span>Preview profile</span>
+            </button>
+            <button type="button" onclick="window.showToast('Profile and preferences updated successfully!', 'success')" class="flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#00B4D8] hover:bg-[#00F0FF] text-[#0B132B] shadow-glow-cyan transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>Save changes</span>
+            </button>
+          </div>
+        </div>
+
+        
+        <div class="flex items-center gap-2 p-1 rounded-xl bg-[#131B2E] border border-[#232F55] w-fit" role="tablist">
+          <button 
+            type="button" 
+            role="tab" 
+            aria-selected="true" 
+            data-settings-tab="section-profile" 
+            class="px-5 py-2 rounded-lg text-xs font-bold bg-[#1C2541] text-[#00F0FF] border border-[#00B4D8] shadow-glow-cyan-subtle transition-all"
+          >
+            Your Profile (Figma P.9-10)
+          </button>
+          <button 
+            type="button" 
+            role="tab" 
+            aria-selected="false" 
+            data-settings-tab="section-settings" 
+            class="px-5 py-2 rounded-lg text-xs font-semibold text-[#8D99AE] hover:text-white border border-transparent transition-all"
+          >
+            Workspace Settings (Figma P.11-12)
+          </button>
+        </div>
+
+        
+        <div id="section-profile" data-settings-section class="space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            
+            
+            <div class="lg:col-span-4 space-y-6">
+              
+              <div class="p-6 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card text-center relative overflow-hidden">
+                <div class="relative w-24 h-24 mx-auto mb-4">
+                  <div class="w-full h-full rounded-full bg-gradient-to-tr from-[#3A86EF] via-[#00B4D8] to-[#00F0FF] p-1 shadow-glow-cyan">
+                    <div class="w-full h-full rounded-full bg-[#0B132B] flex items-center justify-center font-bold text-2xl text-white">
+                      AR
+                    </div>
+                  </div>
+                  <button type="button" aria-label="Change photo" class="absolute bottom-0 right-0 p-2 rounded-full bg-[#00B4D8] text-[#0B132B] shadow-sm hover:scale-110 transition-transform">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  </button>
+                </div>
+
+                <h2 class="text-lg font-extrabold text-white">Admin RAK</h2>
+                <p class="text-xs text-[#8D99AE] mt-0.5">Aspiring Software Engineer</p>
+                <p class="text-xs text-[#8D99AE]">Cairo, Egypt • Class of 2026</p>
+
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#06D6A0]/10 border border-[#06D6A0]/30 text-xs text-[#06D6A0] font-semibold mt-3">
+                  <span class="w-2 h-2 rounded-full bg-[#06D6A0] animate-pulse"></span>
+                  Open to opportunities
+                </div>
+
+                <button type="button" class="mt-5 w-full py-2 rounded-xl text-xs font-semibold text-white bg-[#1C2541] hover:bg-[#232F55] border border-[#232F55] transition-all">
+                  Change profile photo
+                </button>
+              </div>
+
+              
+              <div class="p-5 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card">
+                <div class="flex items-center justify-between text-xs font-bold text-white mb-2">
+                  <span>Profile strength</span>
+                  <span class="text-[#00F0FF] font-mono">85%</span>
+                </div>
+                <div class="w-full bg-[#0B132B] h-2 rounded-full overflow-hidden">
+                  <div class="bg-gradient-to-r from-[#00B4D8] to-[#00F0FF] h-full rounded-full shadow-glow-cyan" style="width: 85%"></div>
+                </div>
+                <p class="text-[11px] text-[#8D99AE] mt-2.5 leading-snug">
+                  Add a portfolio link or GitHub repo to help recruiters discover your work.
+                </p>
+              </div>
+
+              
+              <div class="p-5 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-white uppercase tracking-wider">Resume</span>
+                  <button type="button" onclick="window.showToast('Select a new PDF file to upload...', 'info')" class="text-xs text-[#00F0FF] hover:underline">Replace</button>
+                </div>
+
+                
+                <div class="p-3.5 rounded-xl bg-[#0B132B] border border-[#232F55] flex items-center justify-between group hover:border-[#00B4D8] transition-all">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-[#3A86EF]/15 text-[#3A86EF] flex items-center justify-center font-bold text-xs shrink-0">
+                      PDF
+                    </div>
+                    <div>
+                      <span class="text-xs font-bold text-white block">Admin_RAK_Resume.pdf</span>
+                      <span class="text-[10px] text-[#8D99AE]">Updated Oct 24 • 248 KB</span>
+                    </div>
+                  </div>
+                  <button type="button" aria-label="Download resume" onclick="window.showToast('Downloading resume copy...', 'info')" class="text-[#8D99AE] hover:text-[#00F0FF] p-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                  </button>
+                </div>
+                <span class="text-[10px] text-[#5C677D] block">Shared only with employers you apply to.</span>
+              </div>
+
+              
+              <div class="p-5 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card space-y-2.5">
+                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-1">Online presence</span>
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="flex items-center justify-between text-xs text-[#00F0FF] hover:underline p-2 rounded-lg bg-[#0B132B]">
+                  <span>linkedin.com/in/admin-rak</span>
+                  <span>↗</span>
+                </a>
+                <a href="https://github.com" target="_blank" rel="noreferrer" class="flex items-center justify-between text-xs text-[#00F0FF] hover:underline p-2 rounded-lg bg-[#0B132B]">
+                  <span>github.com/admin-rak</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            
+            <div class="lg:col-span-8 space-y-6">
+              
+              
+              <section aria-label="Personal Information" class="p-6 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card space-y-4">
+                <h2 class="text-sm font-bold text-white uppercase tracking-wider border-b border-[#1C2541] pb-3">
+                  Personal information
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-semibold text-[#8D99AE] mb-1">First name</label>
+                    <input type="text" value="Admin" class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-[#8D99AE] mb-1">Last name</label>
+                    <input type="text" value="RAK" class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-[#8D99AE] mb-1">University email</label>
+                    <div class="relative">
+                      <input type="email" value="admin.rak@zewailcity.edu.eg" class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                      <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-[#06D6A0]">✓</span>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-[#8D99AE] mb-1">Phone number</label>
+                    <input type="tel" value="+20 100 123 4567" class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label class="block text-xs font-semibold text-[#8D99AE] mb-1">Professional headline</label>
+                    <input type="text" value="Aspiring Software Engineer | React & Python" class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                  </div>
+                </div>
+              </section>
+
+              
+              <section aria-label="Academic Background" class="p-6 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card space-y-4">
+                <div class="flex items-center justify-between border-b border-[#1C2541] pb-3">
+                  <h2 class="text-sm font-bold text-white uppercase tracking-wider">
+                    Academic background
+                  </h2>
+                  <span class="text-xs font-bold text-[#06D6A0] bg-[#06D6A0]/10 px-2.5 py-0.5 rounded-full border border-[#06D6A0]/30">
+                    Verified student ✓
+                  </span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-semibold text-[#8D99AE] mb-1">University</label>
+                    <select class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                      <option selected>Zewail City</option>
+                      <option>Cairo University</option>
+                      <option>Ain Shams University</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-[#8D99AE] mb-1">Degree</label>
+                    <input type="text" value="B.Sc. Computer Science" class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-[#8D99AE] mb-1">Graduation year</label>
+                    <select class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                      <option selected>2026</option>
+                      <option>2027</option>
+                      <option>2028</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-[#8D99AE] mb-1">Cumulative GPA</label>
+                    <input type="text" value="3.8 / 4.0" class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                  </div>
+                </div>
+              </section>
+
+              
+              <section aria-label="Skills & Career Interests" class="p-6 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card space-y-4">
+                <div class="flex items-center justify-between border-b border-[#1C2541] pb-3">
+                  <h2 class="text-sm font-bold text-white uppercase tracking-wider">
+                    Skills & career interests
+                  </h2>
+                  <button type="button" class="text-xs text-[#00F0FF] hover:underline" onclick="window.showToast('Edit mode opened', 'info')">Edit skills</button>
+                </div>
+                
+                
+                <div>
+                  <span class="block text-xs font-semibold text-[#8D99AE] mb-2">Target Tech Stack</span>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-lg bg-[#0B132B] border border-[#232F55] text-xs font-semibold text-white">React</span>
+                    <span class="px-3 py-1 rounded-lg bg-[#0B132B] border border-[#232F55] text-xs font-semibold text-white">TypeScript</span>
+                    <span class="px-3 py-1 rounded-lg bg-[#0B132B] border border-[#232F55] text-xs font-semibold text-white">Python</span>
+                    <span class="px-3 py-1 rounded-lg bg-[#0B132B] border border-[#232F55] text-xs font-semibold text-white">UI/UX Design</span>
+                    <span class="px-3 py-1 rounded-lg bg-[#0B132B] border border-[#232F55] text-xs font-semibold text-white">Git</span>
+                    <span class="px-3 py-1 rounded-lg bg-[#0B132B] border border-[#232F55] text-xs font-semibold text-white">SQL</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div>
+                    <label class="block text-xs font-semibold text-[#8D99AE] mb-1">Preferred roles</label>
+                    <input type="text" value="Software Engineering, Frontend" class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs text-white focus:ring-[#00F0FF]">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-[#8D99AE] mb-1">Work preference</label>
+                    <input type="text" value="Hybrid • Remote" class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs text-white focus:ring-[#00F0FF]">
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          </div>
+        </div>
+
+        
+        <div id="section-settings" data-settings-section class="hidden space-y-6">
+          <div class="max-w-4xl space-y-6">
+            
+            
+            <section aria-label="Account Settings" class="p-6 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card space-y-4">
+              <h2 class="text-sm font-bold text-white uppercase tracking-wider border-b border-[#1C2541] pb-3">
+                Account information
+              </h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-[#8D99AE] mb-1">Display name</label>
+                  <input type="text" value="Admin RAK" class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-[#8D99AE] mb-1">University email</label>
+                  <input type="email" value="admin.rak@zewailcity.edu.eg" disabled class="w-full bg-[#0B132B]/60 border border-[#232F55] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#8D99AE] cursor-not-allowed">
+                </div>
+              </div>
+              <p class="text-[11px] text-[#5C677D]">
+                Your university email is verified and managed by Zewail City administrative services.
+              </p>
+            </section>
+
+            
+            <section aria-label="Workspace Preferences" class="p-6 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card space-y-4">
+              <h2 class="text-sm font-bold text-white uppercase tracking-wider border-b border-[#1C2541] pb-3">
+                Workspace preferences
+              </h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-[#8D99AE] mb-1">Language</label>
+                  <select class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                    <option selected>English</option>
+                    <option>Arabic</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-[#8D99AE] mb-1">Time zone</label>
+                  <select class="w-full bg-[#0B132B] border border-[#232F55] rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:ring-[#00F0FF]">
+                    <option selected>(GMT+02:00) Cairo</option>
+                    <option>(GMT+00:00) London</option>
+                    <option>(GMT-05:00) New York</option>
+                  </select>
+                </div>
+              </div>
+
+              
+              <div class="pt-2">
+                <span class="block text-xs font-semibold text-[#8D99AE] mb-2">Appearance</span>
+                <div class="flex items-center gap-3">
+                  <button type="button" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-[#00B4D8] text-[#0B132B] shadow-glow-cyan">
+                    <span>🌙 Dark</span>
+                  </button>
+                  <button type="button" onclick="window.showToast('Light mode preview', 'info')" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-[#8D99AE] hover:text-white bg-[#0B132B] border border-[#232F55]">
+                    <span>☀️ Light</span>
+                  </button>
+                  <button type="button" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-[#8D99AE] hover:text-white bg-[#0B132B] border border-[#232F55]">
+                    <span>💻 System</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            
+            <section aria-label="Notification Preferences" class="p-6 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card space-y-4">
+              <div class="flex items-center justify-between border-b border-[#1C2541] pb-3">
+                <h2 class="text-sm font-bold text-white uppercase tracking-wider">
+                  Stay in the loop
+                </h2>
+                <a href="#" class="text-xs text-[#00F0FF] hover:underline">All notification settings →</a>
+              </div>
+
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="text-xs font-bold text-white">Application updates</h3>
+                    <p class="text-[11px] text-[#8D99AE]">Status changes, interview reminders and offers.</p>
+                  </div>
+                  
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" checked class="sr-only peer">
+                    <div class="w-11 h-6 bg-[#0B132B] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                  </label>
+                </div>
+
+                <div class="flex items-center justify-between pt-3 border-t border-[#1C2541]">
+                  <div>
+                    <h3 class="text-xs font-bold text-white">Weekly career digest</h3>
+                    <p class="text-[11px] text-[#8D99AE]">A curated roundup of new roles and university events.</p>
+                  </div>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="sr-only peer">
+                    <div class="w-11 h-6 bg-[#0B132B] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                  </label>
+                </div>
+              </div>
+            </section>
+
+            
+            <section aria-label="Security" class="p-6 rounded-2xl bg-[#131B2E] border border-[#232F55] shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#06D6A0]/10 text-[#06D6A0] flex items-center justify-center font-bold">
+                  🛡️
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold text-white">Your account is protected</h3>
+                  <p class="text-[11px] text-[#8D99AE]">Two-factor authentication is enabled. Last sign-in: today, Cairo.</p>
+                </div>
+              </div>
+              <button type="button" class="px-4 py-2 rounded-xl text-xs font-semibold text-white bg-[#1C2541] hover:bg-[#232F55] border border-[#232F55]">
+                Manage security
+              </button>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  
+  <nav aria-label="Mobile Navigation" class="lg:hidden fixed bottom-0 inset-x-0 bg-[#131B2E]/95 backdrop-blur-md border-t border-[#1C2541] px-4 py-2 z-40 flex justify-around items-center">
+    <a href="dashboard.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+      <span class="text-[10px] font-medium">Home</span>
+    </a>
+    <a href="jobs.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <span class="text-[10px] font-medium">Jobs</span>
+    </a>
+    <a href="pipeline.html" class="flex flex-col items-center gap-1 text-[#8D99AE] hover:text-white py-1 px-3">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
+      <span class="text-[10px] font-medium">Pipeline</span>
+    </a>
+    <a href="profile-settings.html" aria-current="page" class="flex flex-col items-center gap-1 text-[#00F0FF] py-1 px-3">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+      <span class="text-[10px] font-semibold">Profile</span>
+    </a>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
